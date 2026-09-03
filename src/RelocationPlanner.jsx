@@ -12,13 +12,16 @@ function RelocationPlanner() {
   const [loadingVillages, setLoadingVillages] = useState(true);
   const [error, setError] = useState("");
 
-  // Load villages
+  // --------------------------------------------------
+  // LOAD VILLAGES
+  // --------------------------------------------------
   useEffect(() => {
     fetch(`${API_BASE_URL}/api/relocation/villages`)
       .then((res) => {
         if (!res.ok) {
           throw new Error("Failed to load villages");
         }
+
         return res.json();
       })
       .then((data) => {
@@ -27,24 +30,30 @@ function RelocationPlanner() {
       })
       .catch((err) => {
         console.error("Failed to load villages:", err);
+
         setError("Unable to load habitation data.");
         setLoadingVillages(false);
       });
   }, []);
 
-  // Load default recommendations
+  // --------------------------------------------------
+  // LOAD DEFAULT RECOMMENDATIONS
+  // --------------------------------------------------
   useEffect(() => {
     fetch(`${API_BASE_URL}/api/relocation/recommend`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ limit: 3 }),
+      body: JSON.stringify({
+        limit: 3,
+      }),
     })
       .then((res) => {
         if (!res.ok) {
           throw new Error("Failed to load recommendations");
         }
+
         return res.json();
       })
       .then((data) => {
@@ -53,12 +62,15 @@ function RelocationPlanner() {
       })
       .catch((err) => {
         console.error("Failed to load recommendations:", err);
+
         setError("Unable to load relocation recommendations.");
         setLoading(false);
       });
   }, []);
 
-  // Handle habitation selection
+  // --------------------------------------------------
+  // HANDLE HABITATION SELECTION
+  // --------------------------------------------------
   const handleVillageChange = (e) => {
     const villageName = e.target.value;
 
@@ -69,10 +81,18 @@ function RelocationPlanner() {
     );
 
     setSelectedData(village || null);
+
+    // IMPORTANT:
+    // Clear old recommendations when the selected
+    // habitation changes so stale results aren't shown.
+    setRecommendations([]);
+
     setError("");
   };
 
-  // Find relocation sites
+  // --------------------------------------------------
+  // FIND RELOCATION SITES
+  // --------------------------------------------------
   const handleFindSites = async () => {
     if (!selectedVillage) {
       setError("Please select a habitation first.");
@@ -87,9 +107,11 @@ function RelocationPlanner() {
         `${API_BASE_URL}/api/relocation/recommend`,
         {
           method: "POST",
+
           headers: {
             "Content-Type": "application/json",
           },
+
           body: JSON.stringify({
             limit: 3,
             village: selectedVillage,
@@ -101,7 +123,9 @@ function RelocationPlanner() {
 
       if (!response.ok) {
         throw new Error(
-          data.detail || "Backend failed to generate recommendations."
+          data.detail ||
+            data.message ||
+            "Backend failed to generate recommendations."
         );
       }
 
@@ -109,15 +133,21 @@ function RelocationPlanner() {
     } catch (err) {
       console.error("Recommendation error:", err);
 
+      setRecommendations([]);
+
       setError(
-        err.message || "Unable to load relocation recommendations."
+        err.message ||
+          "Unable to load relocation recommendations."
       );
     } finally {
       setLoading(false);
     }
   };
 
-  // Display values
+  // --------------------------------------------------
+  // DISPLAY VALUES
+  // --------------------------------------------------
+
   const population = selectedData?.population
     ? Number(selectedData.population).toLocaleString()
     : "--";
@@ -125,7 +155,9 @@ function RelocationPlanner() {
   const riskScore =
     selectedData?.safety_score !== undefined &&
     selectedData?.safety_score !== null
-      ? Math.round((1 - Number(selectedData.safety_score)) * 100)
+      ? Math.round(
+          (1 - Number(selectedData.safety_score)) * 100
+        )
       : "--";
 
   const safetyScore =
@@ -152,76 +184,130 @@ function RelocationPlanner() {
     }
   }
 
+  // --------------------------------------------------
+  // UI
+  // --------------------------------------------------
+
   return (
     <div className="relocation-page">
 
       {/* PAGE HEADER */}
       <div className="relocation-page-header">
+
         <div>
+
           <div className="eyebrow">
             RELOCATION DECISION SUPPORT
           </div>
 
-          <h1>Relocation Planner</h1>
+          <h1>
+            Relocation Planner
+          </h1>
 
           <p>
-            Assess vulnerable habitations and identify the safest
-            alternative locations for relocation.
+            Assess vulnerable habitations and identify
+            the safest alternative locations for relocation.
           </p>
+
         </div>
 
         <div className="planner-status">
           <span className="status-dot"></span>
           System Ready
         </div>
+
       </div>
+
 
       {/* OVERVIEW STRIP */}
       <div className="relocation-overview">
 
         <div className="overview-item">
-          <div className="overview-icon">👥</div>
+
+          <div className="overview-icon">
+            👥
+          </div>
 
           <div>
-            <span>People to Relocate</span>
-            <strong>3,060</strong>
+            <span>
+              People to Relocate
+            </span>
+
+            <strong>
+              3,060
+            </strong>
           </div>
+
         </div>
+
 
         <div className="overview-divider"></div>
 
+
         <div className="overview-item">
-          <div className="overview-icon">🏠</div>
+
+          <div className="overview-icon">
+            🏠
+          </div>
 
           <div>
-            <span>Available Capacity</span>
-            <strong>3,840</strong>
+            <span>
+              Available Capacity
+            </span>
+
+            <strong>
+              3,840
+            </strong>
           </div>
+
         </div>
+
 
         <div className="overview-divider"></div>
 
+
         <div className="overview-item">
-          <div className="overview-icon">✓</div>
+
+          <div className="overview-icon">
+            ✓
+          </div>
 
           <div>
-            <span>Capacity Surplus</span>
-            <strong>780</strong>
+            <span>
+              Capacity Surplus
+            </span>
+
+            <strong>
+              780
+            </strong>
           </div>
+
         </div>
+
 
         <div className="overview-divider"></div>
 
+
         <div className="overview-item">
-          <div className="overview-icon">◉</div>
+
+          <div className="overview-icon">
+            ◉
+          </div>
 
           <div>
-            <span>Priority Villages</span>
-            <strong>5</strong>
+            <span>
+              Priority Villages
+            </span>
+
+            <strong>
+              5
+            </strong>
           </div>
+
         </div>
 
       </div>
+
 
       {/* MAIN GRID */}
       <div className="relocation-main-grid">
@@ -230,23 +316,30 @@ function RelocationPlanner() {
         <section className="assessment-panel">
 
           <div className="panel-heading">
+
             <div>
+
               <span className="panel-label">
                 STEP 01
               </span>
 
-              <h2>Select habitation</h2>
+              <h2>
+                Select habitation
+              </h2>
 
               <p>
                 Choose a vulnerable habitation to begin
                 the relocation assessment.
               </p>
+
             </div>
 
             <div className="panel-number">
               01
             </div>
+
           </div>
+
 
           {/* VILLAGE SELECT */}
           <div className="field-group">
@@ -260,6 +353,7 @@ function RelocationPlanner() {
               onChange={handleVillageChange}
               disabled={loadingVillages}
             >
+
               <option value="">
                 {loadingVillages
                   ? "Loading habitations..."
@@ -267,16 +361,20 @@ function RelocationPlanner() {
               </option>
 
               {villages.map((village) => (
+
                 <option
                   key={village.location_code}
                   value={village.village_name}
                 >
                   {village.village_name}
                 </option>
+
               ))}
+
             </select>
 
           </div>
+
 
           {/* POPULATION */}
           <div className="population-box">
@@ -286,6 +384,7 @@ function RelocationPlanner() {
             </div>
 
             <div>
+
               <span>
                 Population requiring relocation
               </span>
@@ -295,39 +394,62 @@ function RelocationPlanner() {
                   ? `${population} people`
                   : "--"}
               </strong>
+
             </div>
 
             <div className="population-priority">
-              {selectedData ? "ASSESSED" : "--"}
+
+              {selectedData
+                ? "ASSESSED"
+                : "--"}
+
             </div>
 
           </div>
+
 
           {/* ASSESSMENT FACTORS */}
           <div className="assessment-factors">
 
             <div>
-              <span>Hazard Risk</span>
+
+              <span>
+                Hazard Risk
+              </span>
 
               <strong className="risk-value">
+
                 {selectedData
                   ? `${riskScore}/100`
                   : "--"}
+
               </strong>
+
             </div>
 
+
             <div>
-              <span>Safety Score</span>
+
+              <span>
+                Safety Score
+              </span>
 
               <strong>
+
                 {safetyScore !== null
                   ? `${safetyScore.toFixed(1)}/100`
                   : "--"}
+
               </strong>
+
             </div>
 
+
             <div>
-              <span>Accessibility</span>
+
+              <span>
+                Accessibility
+              </span>
 
               <strong
                 className={
@@ -338,9 +460,11 @@ function RelocationPlanner() {
               >
                 {accessibilityLabel}
               </strong>
+
             </div>
 
           </div>
+
 
           {/* FIND BUTTON */}
           <button
@@ -348,14 +472,19 @@ function RelocationPlanner() {
             onClick={handleFindSites}
             disabled={!selectedVillage || loading}
           >
+
             {loading
               ? "Finding suitable sites..."
               : "Find Suitable Relocation Sites"}
 
-            <span>→</span>
+            <span>
+              →
+            </span>
+
           </button>
 
         </section>
+
 
         {/* AI RECOMMENDATION */}
         <section className="ai-recommendation">
@@ -372,27 +501,46 @@ function RelocationPlanner() {
 
           </div>
 
+
           <h2>
-            {recommendations.length} suitable sites identified
+
+            {recommendations.length}
+            {" "}
+            suitable sites identified
+
           </h2>
 
+
           <p>
+
             {selectedVillage
               ? `RESQ assessed relocation options for ${selectedVillage} and ranked suitable locations using the available safety, capacity and accessibility scores.`
               : "Select a habitation to begin the relocation assessment and identify suitable alternative locations."}
+
           </p>
 
+
+          {/* BEST MATCH */}
           <div className="recommendation-score">
 
             <div>
-              <span>Best Match</span>
+
+              <span>
+                Best Match
+              </span>
 
               <strong>
+
                 {recommendations.length > 0
-                  ? `${recommendations[0].score_100}%`
+                  ? `${Number(
+                      recommendations[0].score_100
+                    ).toFixed(2)}%`
                   : "--"}
+
               </strong>
+
             </div>
+
 
             <div className="recommendation-bar">
 
@@ -400,7 +548,12 @@ function RelocationPlanner() {
                 style={{
                   width:
                     recommendations.length > 0
-                      ? `${recommendations[0].score_100}%`
+                      ? `${Math.min(
+                          Number(
+                            recommendations[0].score_100
+                          ),
+                          100
+                        )}%`
                       : "0%",
                 }}
               ></div>
@@ -409,15 +562,28 @@ function RelocationPlanner() {
 
           </div>
 
+
+          {/* AI FACTORS */}
           <div className="ai-factors">
-            <span>✓ Low hazard exposure</span>
-            <span>✓ Sufficient capacity</span>
-            <span>✓ Accessible infrastructure</span>
+
+            <span>
+              ✓ Low hazard exposure
+            </span>
+
+            <span>
+              ✓ Sufficient capacity
+            </span>
+
+            <span>
+              ✓ Accessible infrastructure
+            </span>
+
           </div>
 
         </section>
 
       </div>
+
 
       {/* SAFE SITES */}
       <section className="sites-section">
@@ -425,6 +591,7 @@ function RelocationPlanner() {
         <div className="sites-heading">
 
           <div>
+
             <span className="panel-label">
               STEP 02
             </span>
@@ -437,45 +604,71 @@ function RelocationPlanner() {
               Locations ranked according to safety,
               capacity and accessibility.
             </p>
+
           </div>
 
         </div>
 
-        {loading ? (
-          <p>
-            Loading recommendations...
-          </p>
-        ) : error ? (
+
+        {/* ERROR */}
+        {error ? (
+
           <p>
             {error}
           </p>
+
+        ) : loading ? (
+
+          <p>
+            Loading recommendations...
+          </p>
+
         ) : recommendations.length === 0 ? (
+
           <p>
             No suitable relocation sites found.
           </p>
+
         ) : (
+
           <div className="safe-site-list">
 
             {recommendations.map((site, index) => (
+
               <SafeSite
+
                 key={site.location_code}
+
                 rank={String(index + 1).padStart(2, "0")}
+
                 name={site.village_name}
+
                 location={`Dibrugarh • ${site.location_code}`}
+
                 capacity={`${(
                   Number(site.capacity_score) * 100
                 ).toFixed(2)}%`}
+
                 distance={`${site.distance_km} km`}
-                relocationScore={site.score_100}
+
+                relocationScore={Number(
+                  site.score_100
+                ).toFixed(2)}
+
                 infrastructure="Assessed"
+
                 best={index === 0}
+
               />
+
             ))}
 
           </div>
+
         )}
 
       </section>
+
 
       {/* FOOTER INSIGHT */}
       <div className="planner-insight">
@@ -493,7 +686,8 @@ function RelocationPlanner() {
           <p>
             Site recommendations consider hazard exposure,
             population capacity, road accessibility,
-            infrastructure availability and evacuation feasibility.
+            infrastructure availability and evacuation
+            feasibility.
           </p>
 
         </div>
@@ -505,19 +699,29 @@ function RelocationPlanner() {
 }
 
 
-/* SAFE SITE COMPONENT */
+/* ==================================================
+   SAFE SITE COMPONENT
+   ================================================== */
+
 function SafeSite(props) {
+
   return (
+
     <div
       className={`safe-site-card ${
-        props.best ? "best-site" : ""
+        props.best
+          ? "best-site"
+          : ""
       }`}
     >
 
+      {/* RANK */}
       <div className="site-rank">
         {props.rank}
       </div>
 
+
+      {/* SITE NAME */}
       <div className="site-main">
 
         <div className="site-title">
@@ -527,9 +731,11 @@ function SafeSite(props) {
           </h3>
 
           {props.best && (
+
             <span className="best-badge">
               BEST MATCH
             </span>
+
           )}
 
         </div>
@@ -540,6 +746,8 @@ function SafeSite(props) {
 
       </div>
 
+
+      {/* CAPACITY */}
       <div className="site-metric">
 
         <span>
@@ -556,6 +764,8 @@ function SafeSite(props) {
 
       </div>
 
+
+      {/* DISTANCE */}
       <div className="site-metric">
 
         <span>
@@ -572,6 +782,8 @@ function SafeSite(props) {
 
       </div>
 
+
+      {/* RELOCATION SCORE */}
       <div className="site-safety">
 
         <span>
@@ -586,7 +798,12 @@ function SafeSite(props) {
 
           <div
             style={{
-              width: `${props.relocationScore}%`,
+              width: `${Math.min(
+                Number(
+                  props.relocationScore
+                ),
+                100
+              )}%`,
             }}
           ></div>
 
@@ -594,6 +811,8 @@ function SafeSite(props) {
 
       </div>
 
+
+      {/* INFRASTRUCTURE */}
       <div className="site-infrastructure">
 
         <span className="check-icon">
@@ -614,6 +833,8 @@ function SafeSite(props) {
 
       </div>
 
+
+      {/* ARROW */}
       <button
         type="button"
         className="site-arrow"
@@ -622,7 +843,9 @@ function SafeSite(props) {
       </button>
 
     </div>
+
   );
 }
+
 
 export default RelocationPlanner;
