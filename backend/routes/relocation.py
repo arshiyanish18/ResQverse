@@ -1,6 +1,5 @@
 from fastapi import APIRouter
 import pandas as pd
-import math
 
 router = APIRouter()
 
@@ -40,10 +39,13 @@ def recommend_relocation(data: dict):
     limit = int(data.get("limit", 3))
     selected_village = data.get("village")
 
-    # --------------------------------------------------
-    # If no village is selected, return overall best sites
-    # --------------------------------------------------
+    # ==================================================
+    # NO VILLAGE SELECTED
+    # Return the overall best relocation sites
+    # ==================================================
+
     if not selected_village:
+
         results = (
             df.sort_values(
                 "final_relocation_score",
@@ -53,10 +55,19 @@ def recommend_relocation(data: dict):
             .copy()
         )
 
+        # Use the existing overall relocation score
+        results["recommendation_score"] = (
+            results["final_relocation_score"]
+        )
+
+    # ==================================================
+    # VILLAGE SELECTED
+    # Create personalized recommendations
+    # ==================================================
+
     else:
-        # --------------------------------------------------
-        # Find the selected village
-        # --------------------------------------------------
+
+        # Find selected village
         selected_rows = df[
             df["village_name"].astype(str).str.strip()
             == str(selected_village).strip()
@@ -66,29 +77,20 @@ def recommend_relocation(data: dict):
             return {
                 "status": "ERROR",
                 "message": "Selected village not found.",
+                "count": 0,
                 "recommendations": [],
             }
 
         selected = selected_rows.iloc[0]
 
-        # --------------------------------------------------
-        # Create candidate villages
-        # --------------------------------------------------
+        # Remove the selected village itself
         results = df[
             df["village_name"].astype(str).str.strip()
             != str(selected_village).strip()
         ].copy()
 
         # --------------------------------------------------
-        # Personalized recommendation score
-        #
-        # Higher:
-        #   safety
-        #   capacity
-        #   accessibility
-        #
-        # Better:
-        #   closer to selected village
+        # Calculate distance difference from selected village
         # --------------------------------------------------
 
         selected_hub_distance = float(
@@ -100,11 +102,17 @@ def recommend_relocation(data: dict):
             - selected_hub_distance
         ).abs()
 
-        # Normalize distance.
-        # Closer = higher score.
-        max_distance = results["distance_from_selected"].max()
+        # --------------------------------------------------
+        # Convert distance into a proximity score
+        # Closer = higher score
+        # --------------------------------------------------
+
+        max_distance = results[
+            "distance_from_selected"
+        ].max()
 
         if max_distance > 0:
+
             results["proximity_score"] = (
                 1
                 - (
@@ -112,49 +120,78 @@ def recommend_relocation(data: dict):
                     / max_distance
                 )
             )
+
         else:
+
             results["proximity_score"] = 1.0
 
-        # Personalized score
-        results["personalized_score"] = (
+        # --------------------------------------------------
+        # Personalized recommendation score
+        #
+        # Safety       = 45%
+        # Capacity     = 25%
+        # Accessibility= 15%
+        # Proximity    = 15%
+        # --------------------------------------------------
+
+        results["recommendation_score"] = (
             0.45 * results["safety_score"]
             + 0.25 * results["capacity_score"]
             + 0.15 * results["accessibility_score"]
             + 0.15 * results["proximity_score"]
         )
 
+        # --------------------------------------------------
+        # IMPORTANT:
+        # Sort using the SAME score we display
+        # --------------------------------------------------
+
         results = (
             results.sort_values(
-                "personalized_score",
+                "recommendation_score",
                 ascending=False
             )
             .head(limit)
             .copy()
         )
 
-    # --------------------------------------------------
-    # Build API response
-    # --------------------------------------------------
+    # ==================================================
+    # BUILD RESPONSE
+    # ==================================================
 
     recommendations = []
 
-    for _, row in results.iterrows():
+    for recommendation_rank, (_, row) in enumerate(
+        results.iterrows(),
+        start=1
+    ):
+
+        actual_score = float(
+            row["recommendation_score"]
+        )
 
         recommendations.append({
-            "village_name": row["village_name"],
-            "location_code": int(row["location_code"]),
 
+            "village_name": row["village_name"],
+
+            "location_code": int(
+                row["location_code"]
+            ),
+
+            # Personalized / actual recommendation score
             "relocation_score": round(
-                float(row["final_relocation_score"]),
+                actual_score,
                 4
             ),
 
+            # Same score expressed out of 100
             "score_100": round(
-                float(row["final_relocation_score_100"]),
+                actual_score * 100,
                 2
             ),
 
-            "rank": int(row["final_rank"]),
+            # Rank within THIS recommendation result
+            "rank": recommendation_rank,
 
             "safety_score": round(
                 float(row["safety_score"]),
