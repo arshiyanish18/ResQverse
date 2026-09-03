@@ -1,0 +1,54 @@
+event_date,latitude,longitude,location_description,admin_division_name,landslide_trigger,landslide_size,fatality_count
+09/05/2016 06:04:00 PM,26.324724,94.514651,"Mokochung, Nagaland, India",,rain,large,0
+07/04/2017 07:39:00 PM,27.98531715,94.21263589,"Abotani Colony, Daporijo Township, Arunachal Pradesh, India",,rain,medium,0
+07/04/2017 07:39:00 PM,27.97875751,94.26296826,"Daporijo-Dumporijo road, Arunachal Pradesh, India",,rain,small,0
+07/01/2017 04:00:00 PM,26.3312531,94.55427723,"Chuchuyimpang, Mokokchung, Nagaland",,downpour,medium,0
+08/16/2016 12:40:00 PM,26.88161,95.399897,"Longding, India",,other,small,1
+04/19/2016 12:00:00 AM,26.7223,95.0243,"Techahan Ward, Mon, Nagaland, India",Nagaland,continuous_rain,medium,0
+06/09/2015 12:00:00 AM,27.0987,93.816,"Itanagar, Arunachal Pradesh",Arunachal Pradesh,continuous_rain,medium,2
+06/12/2016 11:00:00 PM,27.6438,93.871,"NH 13 10 kilometers from Old Ziro, Arunachal Pradesh, India",Arunachal Pradesh,downpour,medium,0
+06/15/2008 12:00:00 AM,27.2298,94.0989,"Lakhimpur district, Bihpuria, Assam",Assam,downpour,medium,17
+04/21/2010 12:00:00 AM,27.8965,96.1779,Arunachal Pradesh ,Arunāchal Pradesh,downpour,medium,12
+05/08/2014 12:00:00 AM,27.9032,96.174,Lohit District of Arunachal Pradesh,Arunachal Pradesh,rain,medium,0
+07/20/2010 12:00:00 AM,26.8716,94.9921,"road to Oting near Longlam village, 13 km from Tizit subdivision, Mon district, Nagaland",Nāgāland,downpour,medium,0
+10/01/2014 11:00:00 AM,27.1249,93.7706,Karsingsa block point,Arunachal Pradesh,unknown,small,5
+06/25/2012 12:00:00 AM,27.174,95.8011,"Tirap , Arunachal Pradesh",Arunāchal Pradesh,downpour,large,
+04/08/2012 12:00:00 AM,28.4659,95.86,"Endulin Nallah, Mayodia, 17-camp, 83-camp",Arunāchal Pradesh,downpour,medium,0
+08/04/2013 12:00:00 AM,26.284,94.5808,"Nanga, Nagaland",Nāgāland,continuous_rain,medium,
+06/01/2013 12:00:00 AM,27.8776,94.25,Upper Subansiri,Arunāchal Pradesh,downpour,large,
+08/16/2013 12:00:00 AM,26.8727,94.9275,"Longlem, Nagaland",Assam,rain,medium,
+09/10/2010 12:00:00 AM,27.0011,93.7273,"districts Lakhimpur, Dhemaji, Golaghat, and Sonitpur, Assam province",Arunāchal Pradesh,downpour,medium,0
+06/17/2010 07:30:00 PM,26.4333,94.8833,"Shayoung Ward(?), Longleng, Nagaland",Nāgāland,downpour,medium,0
+10/29/2008 12:00:00 AM,27.2333,94.1167,North Lakhimpur ,Assam,downpour,medium,
+08/16/2013 12:00:00 AM,26.4205,94.9731,"Yakshu, Nagaland",Nāgāland,rain,medium,
+02/18/2013 12:00:00 AM,28.1193,95.1645,"East Siang, Arunachal Pradesh",Arunāchal Pradesh,rain,medium,3
+07/06/2010 12:00:00 AM,26.2363,94.8133,"Tuensang, Nagaland",Nāgāland,monsoon,medium,0
+08/14/2010 12:00:00 AM,26.222,94.9152,"Noklak-Tuensang road, Nagaland",Nāgāland,downpour,medium,0
+09/19/2012 12:00:00 AM,27.8458,95.2253,Arunachal Pradesh,Arunāchal Pradesh,downpour,medium,
+07/01/2013 12:00:00 AM,26.72,95.029,"Walo Ward, Mon Town, Wokha District, Nagaland",Nāgāland,downpour,medium,0
+09/02/2013 12:00:00 AM,27.1614,93.7525,Arunachal Pradesh,Arunāchal Pradesh,downpour,large,
+08/14/2008 12:00:00 AM,27.163,94.0,"Kimin-Ziro road in Papum Pare district, road between Doimukh and Sagalee, Doimukh-Hoj road; Arunachal Pradesh",Assam,rain,medium,
+08/18/2015 12:00:00 AM,28.1737,94.7596,Arunachal Pradesh,Arunachal Pradesh,unknown,medium,1
+06/14/2016 08:00:00 AM,26.3185,94.5247,"lower Majakong Ward, Mokokchung, Nagaland, India",Nagaland,continuous_rain,medium,0
+08/16/2013 12:00:00 AM,26.3897,94.9439,"Tobu, Nagaland",Nāgāland,rain,medium,
+05/31/2010 12:00:00 AM,28.4298,95.8776,"Anini-Roing road,  Dibang Valley,  Arunachal Pradesh ",Arunāchal Pradesh,downpour,medium,0
+06/25/2012 12:00:00 AM,26.9986,95.4993,"Khonsa, Arunachal Pradesh",Arunāchal Pradesh,downpour,medium,
+08/04/2013 12:00:00 AM,26.2083,94.5438,"Longsa, Nagaland",Nāgāland,monsoon,medium,
+07/15/2011 06:00:00 PM,27.125,93.7145,Itanagar/Naharlagur/Nirjuli,Arunāchal Pradesh,downpour,small,0
+08/30/2013 12:00:00 AM,26.4205,94.9731,"Yakshu, Nagaland",Nāgāland,unknown,medium,
+09/09/2010 11:00:00 PM,28.3036,95.4112,"Mossing(Mosing) village(?), Upper Siang district, Arunachal Pradesh",Arunāchal Pradesh,downpour,medium,10
+08/11/2013 11:00:00 PM,26.7103,94.693,Kangtsung Village,Assam,downpour,very_large,0
+06/20/2011 12:00:00 AM,26.3186,94.5121,Mokokchung,Nāgāland,downpour,medium,0
+07/19/2010 06:00:00 AM,26.7215,95.0283,"Jahjon ward(?), Mon town, Nagaland",Nāgāland,downpour,medium,0
+06/15/2010 12:00:00 AM,26.3335,94.5512,"Fazl Ali College, Mokokchung, Nagaland",Nāgāland,downpour,medium,0
+07/16/2016 12:00:00 AM,27.3034,93.804,"Hoj-Potin Highway, Arunachal Pradesh, India",Arunachal Pradesh,downpour,medium,1
+10/03/2010 12:00:00 AM,28.3092,95.4149,"Mosing village, Upper Siang district, Arunachal Pradesh",Arunāchal Pradesh,downpour,medium,10
+07/06/2010 12:00:00 AM,26.7225,95.0281,"Mon, Nagaland",Nāgāland,monsoon,medium,0
+08/17/2010 12:00:00 AM,26.2753,94.6654,"Dikhu bridge(?), Mokokchung-Tuensang road, Nagaland",Nāgāland,downpour,medium,0
+07/19/2016 12:00:00 AM,28.235,94.9612,"5 km off Sangam point on Aalo- Pangin road, Arunachal Pradesh, India",Arunachal Pradesh,downpour,medium,0
+07/09/2017 01:23:00 PM,27.11610665,93.79559574,"Naharlagun Sub-District, Papum Pare, Arunachal Pradesh",,continuous_rain,small,0
+06/20/2017 01:16:00 PM,28.10756941,94.18315697,"Gussar, Upper Subansiri, Arunachal Pradesh",,rain,medium,1
+07/10/2017 02:21:00 PM,26.95223279,93.85748748,"Narayanpur, Lakhimpur, Assam, 784164",,continuous_rain,medium,2
+06/24/2017 01:23:00 PM,26.66354481,94.62220277,"Alongkima, Mokokchung, Nagaland",,rain,small,0
+07/10/2017 02:21:00 PM,26.2632687,94.81481951,"Tuensang, Nagaland",,unknown,medium,0
+04/22/2017 06:27:00 PM,27.61790706,93.84196894,"IMC ward #18 (??), Lower Subansiri, Arunachal Pradesh",,monsoon,small,0

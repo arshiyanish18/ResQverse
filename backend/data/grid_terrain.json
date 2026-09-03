@@ -1,0 +1,511 @@
+{
+  "generated_from": "Open-Meteo elevation API (SRTM) + OSM Overpass river geometry",
+  "spacing_deg": 0.07,
+  "point_count": 63,
+  "points": [
+    {
+      "lat": 27.15679,
+      "lon": 94.61291,
+      "elevation_m": 96.0,
+      "slope_deg": 0.01,
+      "aspect_deg": 138.1,
+      "dist_to_river_km": 1.767
+    },
+    {
+      "lat": 27.15679,
+      "lon": 94.82291,
+      "elevation_m": 98.0,
+      "slope_deg": 0.02,
+      "aspect_deg": 192.6,
+      "dist_to_river_km": 4.693
+    },
+    {
+      "lat": 27.15679,
+      "lon": 95.03291,
+      "elevation_m": 108.0,
+      "slope_deg": 0.04,
+      "aspect_deg": 209.2,
+      "dist_to_river_km": 4.913
+    },
+    {
+      "lat": 27.15679,
+      "lon": 95.10291,
+      "elevation_m": 108.0,
+      "slope_deg": 0.04,
+      "aspect_deg": 235.1,
+      "dist_to_river_km": 2.412
+    },
+    {
+      "lat": 27.15679,
+      "lon": 95.38291,
+      "elevation_m": 364.0,
+      "slope_deg": 0.4,
+      "aspect_deg": 199.8,
+      "dist_to_river_km": 2.091
+    },
+    {
+      "lat": 27.15679,
+      "lon": 95.45291,
+      "elevation_m": 216.0,
+      "slope_deg": 0.84,
+      "aspect_deg": 316.6,
+      "dist_to_river_km": 0.064
+    },
+    {
+      "lat": 27.22679,
+      "lon": 94.61291,
+      "elevation_m": 92.0,
+      "slope_deg": 0.02,
+      "aspect_deg": 199.7,
+      "dist_to_river_km": 0.49
+    },
+    {
+      "lat": 27.22679,
+      "lon": 94.82291,
+      "elevation_m": 96.0,
+      "slope_deg": 0.05,
+      "aspect_deg": 170.8,
+      "dist_to_river_km": 1.091
+    },
+    {
+      "lat": 27.22679,
+      "lon": 94.89291,
+      "elevation_m": 106.0,
+      "slope_deg": 0.04,
+      "aspect_deg": 158.3,
+      "dist_to_river_km": 2.457
+    },
+    {
+      "lat": 27.22679,
+      "lon": 94.96291,
+      "elevation_m": 105.0,
+      "slope_deg": 0.02,
+      "aspect_deg": 77.4,
+      "dist_to_river_km": 6.711
+    },
+    {
+      "lat": 27.22679,
+      "lon": 95.03291,
+      "elevation_m": 105.0,
+      "slope_deg": 0.02,
+      "aspect_deg": 204.1,
+      "dist_to_river_km": 7.654
+    },
+    {
+      "lat": 27.22679,
+      "lon": 95.10291,
+      "elevation_m": 109.0,
+      "slope_deg": 0.03,
+      "aspect_deg": 147.4,
+      "dist_to_river_km": 3.081
+    },
+    {
+      "lat": 27.22679,
+      "lon": 95.17291,
+      "elevation_m": 112.0,
+      "slope_deg": 0.02,
+      "aspect_deg": 208.2,
+      "dist_to_river_km": 5.718
+    },
+    {
+      "lat": 27.22679,
+      "lon": 95.24291,
+      "elevation_m": 114.0,
+      "slope_deg": 0.05,
+      "aspect_deg": 146.9,
+      "dist_to_river_km": 3.292
+    },
+    {
+      "lat": 27.22679,
+      "lon": 95.31291,
+      "elevation_m": 123.0,
+      "slope_deg": 0.04,
+      "aspect_deg": 221.8,
+      "dist_to_river_km": 1.366
+    },
+    {
+      "lat": 27.22679,
+      "lon": 95.38291,
+      "elevation_m": 121.0,
+      "slope_deg": 0.92,
+      "aspect_deg": 257.5,
+      "dist_to_river_km": 3.821
+    },
+    {
+      "lat": 27.22679,
+      "lon": 95.45291,
+      "elevation_m": 171.0,
+      "slope_deg": 0.39,
+      "aspect_deg": 237.6,
+      "dist_to_river_km": 0.567
+    },
+    {
+      "lat": 27.29679,
+      "lon": 94.61291,
+      "elevation_m": 94.0,
+      "slope_deg": 0.02,
+      "aspect_deg": 130.0,
+      "dist_to_river_km": 0.219
+    },
+    {
+      "lat": 27.29679,
+      "lon": 94.68291,
+      "elevation_m": 95.0,
+      "slope_deg": 0.02,
+      "aspect_deg": 155.9,
+      "dist_to_river_km": 0.579
+    },
+    {
+      "lat": 27.29679,
+      "lon": 94.75291,
+      "elevation_m": 98.0,
+      "slope_deg": 0.02,
+      "aspect_deg": 169.9,
+      "dist_to_river_km": 0.653
+    },
+    {
+      "lat": 27.29679,
+      "lon": 94.82291,
+      "elevation_m": 100.0,
+      "slope_deg": 0.02,
+      "aspect_deg": 155.9,
+      "dist_to_river_km": 1.144
+    },
+    {
+      "lat": 27.29679,
+      "lon": 94.89291,
+      "elevation_m": 102.0,
+      "slope_deg": 0.02,
+      "aspect_deg": 208.2,
+      "dist_to_river_km": 1.513
+    },
+    {
+      "lat": 27.29679,
+      "lon": 94.96291,
+      "elevation_m": 105.0,
+      "slope_deg": 0.02,
+      "aspect_deg": 192.6,
+      "dist_to_river_km": 2.54
+    },
+    {
+      "lat": 27.29679,
+      "lon": 95.03291,
+      "elevation_m": 106.0,
+      "slope_deg": 0.04,
+      "aspect_deg": 150.8,
+      "dist_to_river_km": 3.236
+    },
+    {
+      "lat": 27.29679,
+      "lon": 95.10291,
+      "elevation_m": 113.0,
+      "slope_deg": 0.02,
+      "aspect_deg": 192.6,
+      "dist_to_river_km": 0.665
+    },
+    {
+      "lat": 27.29679,
+      "lon": 95.17291,
+      "elevation_m": 110.0,
+      "slope_deg": 0.04,
+      "aspect_deg": 155.9,
+      "dist_to_river_km": 0.899
+    },
+    {
+      "lat": 27.29679,
+      "lon": 95.24291,
+      "elevation_m": 121.0,
+      "slope_deg": 0.03,
+      "aspect_deg": 187.3,
+      "dist_to_river_km": 2.655
+    },
+    {
+      "lat": 27.29679,
+      "lon": 95.31291,
+      "elevation_m": 117.0,
+      "slope_deg": 0.01,
+      "aspect_deg": 240.8,
+      "dist_to_river_km": 1.726
+    },
+    {
+      "lat": 27.29679,
+      "lon": 95.38291,
+      "elevation_m": 122.0,
+      "slope_deg": 0.05,
+      "aspect_deg": 162.0,
+      "dist_to_river_km": 0.117
+    },
+    {
+      "lat": 27.29679,
+      "lon": 95.45291,
+      "elevation_m": 128.0,
+      "slope_deg": 0.18,
+      "aspect_deg": 261.9,
+      "dist_to_river_km": 3.965
+    },
+    {
+      "lat": 27.36679,
+      "lon": 94.68291,
+      "elevation_m": 98.0,
+      "slope_deg": 0.01,
+      "aspect_deg": 90.0,
+      "dist_to_river_km": 1.816
+    },
+    {
+      "lat": 27.36679,
+      "lon": 94.75291,
+      "elevation_m": 96.0,
+      "slope_deg": 0.0,
+      "aspect_deg": 180.0,
+      "dist_to_river_km": 3.318
+    },
+    {
+      "lat": 27.36679,
+      "lon": 94.82291,
+      "elevation_m": 98.0,
+      "slope_deg": 0.03,
+      "aspect_deg": 187.3,
+      "dist_to_river_km": 4.815
+    },
+    {
+      "lat": 27.36679,
+      "lon": 94.89291,
+      "elevation_m": 103.0,
+      "slope_deg": 0.03,
+      "aspect_deg": 138.2,
+      "dist_to_river_km": 0.074
+    },
+    {
+      "lat": 27.36679,
+      "lon": 94.96291,
+      "elevation_m": 104.0,
+      "slope_deg": 0.03,
+      "aspect_deg": 187.3,
+      "dist_to_river_km": 2.001
+    },
+    {
+      "lat": 27.36679,
+      "lon": 95.03291,
+      "elevation_m": 110.0,
+      "slope_deg": 0.02,
+      "aspect_deg": 146.1,
+      "dist_to_river_km": 1.604
+    },
+    {
+      "lat": 27.36679,
+      "lon": 95.10291,
+      "elevation_m": 108.0,
+      "slope_deg": 0.03,
+      "aspect_deg": 204.1,
+      "dist_to_river_km": 3.059
+    },
+    {
+      "lat": 27.36679,
+      "lon": 95.17291,
+      "elevation_m": 116.0,
+      "slope_deg": 0.02,
+      "aspect_deg": 169.9,
+      "dist_to_river_km": 1.959
+    },
+    {
+      "lat": 27.36679,
+      "lon": 95.24291,
+      "elevation_m": 113.0,
+      "slope_deg": 0.03,
+      "aspect_deg": 227.0,
+      "dist_to_river_km": 1.503
+    },
+    {
+      "lat": 27.36679,
+      "lon": 95.31291,
+      "elevation_m": 121.0,
+      "slope_deg": 0.05,
+      "aspect_deg": 175.7,
+      "dist_to_river_km": 2.437
+    },
+    {
+      "lat": 27.36679,
+      "lon": 95.38291,
+      "elevation_m": 125.0,
+      "slope_deg": 0.01,
+      "aspect_deg": 210.8,
+      "dist_to_river_km": 3.794
+    },
+    {
+      "lat": 27.36679,
+      "lon": 95.45291,
+      "elevation_m": 124.0,
+      "slope_deg": 0.01,
+      "aspect_deg": 41.8,
+      "dist_to_river_km": 9.781
+    },
+    {
+      "lat": 27.43679,
+      "lon": 94.75291,
+      "elevation_m": 98.0,
+      "slope_deg": 0.03,
+      "aspect_deg": 98.0,
+      "dist_to_river_km": 1.366
+    },
+    {
+      "lat": 27.43679,
+      "lon": 94.82291,
+      "elevation_m": 99.0,
+      "slope_deg": 0.04,
+      "aspect_deg": 169.9,
+      "dist_to_river_km": 0.517
+    },
+    {
+      "lat": 27.43679,
+      "lon": 94.89291,
+      "elevation_m": 108.0,
+      "slope_deg": 0.02,
+      "aspect_deg": 190.1,
+      "dist_to_river_km": 3.604
+    },
+    {
+      "lat": 27.43679,
+      "lon": 94.96291,
+      "elevation_m": 104.0,
+      "slope_deg": 0.01,
+      "aspect_deg": 110.5,
+      "dist_to_river_km": 1.293
+    },
+    {
+      "lat": 27.43679,
+      "lon": 95.03291,
+      "elevation_m": 109.0,
+      "slope_deg": 0.03,
+      "aspect_deg": 196.6,
+      "dist_to_river_km": 0.68
+    },
+    {
+      "lat": 27.43679,
+      "lon": 95.10291,
+      "elevation_m": 110.0,
+      "slope_deg": 0.02,
+      "aspect_deg": 119.2,
+      "dist_to_river_km": 0.717
+    },
+    {
+      "lat": 27.43679,
+      "lon": 95.17291,
+      "elevation_m": 111.0,
+      "slope_deg": 0.03,
+      "aspect_deg": 221.8,
+      "dist_to_river_km": 0.82
+    },
+    {
+      "lat": 27.50679,
+      "lon": 94.82291,
+      "elevation_m": 100.0,
+      "slope_deg": 0.02,
+      "aspect_deg": 65.9,
+      "dist_to_river_km": 0.724
+    },
+    {
+      "lat": 27.50679,
+      "lon": 94.89291,
+      "elevation_m": 102.0,
+      "slope_deg": 0.03,
+      "aspect_deg": 212.5,
+      "dist_to_river_km": 3.575
+    },
+    {
+      "lat": 27.50679,
+      "lon": 94.96291,
+      "elevation_m": 107.0,
+      "slope_deg": 0.02,
+      "aspect_deg": 180.0,
+      "dist_to_river_km": 6.063
+    },
+    {
+      "lat": 27.50679,
+      "lon": 95.03291,
+      "elevation_m": 108.0,
+      "slope_deg": 0.02,
+      "aspect_deg": 199.7,
+      "dist_to_river_km": 4.198
+    },
+    {
+      "lat": 27.50679,
+      "lon": 95.10291,
+      "elevation_m": 112.0,
+      "slope_deg": 0.01,
+      "aspect_deg": 196.6,
+      "dist_to_river_km": 4.004
+    },
+    {
+      "lat": 27.50679,
+      "lon": 95.17291,
+      "elevation_m": 111.0,
+      "slope_deg": 0.02,
+      "aspect_deg": 192.6,
+      "dist_to_river_km": 5.153
+    },
+    {
+      "lat": 27.50679,
+      "lon": 95.24291,
+      "elevation_m": 116.0,
+      "slope_deg": 0.06,
+      "aspect_deg": 196.6,
+      "dist_to_river_km": 4.975
+    },
+    {
+      "lat": 27.57679,
+      "lon": 94.89291,
+      "elevation_m": 103.0,
+      "slope_deg": 0.03,
+      "aspect_deg": 90.0,
+      "dist_to_river_km": 0.258
+    },
+    {
+      "lat": 27.57679,
+      "lon": 94.96291,
+      "elevation_m": 104.0,
+      "slope_deg": 0.02,
+      "aspect_deg": 167.4,
+      "dist_to_river_km": 0.715
+    },
+    {
+      "lat": 27.57679,
+      "lon": 95.03291,
+      "elevation_m": 107.0,
+      "slope_deg": 0.02,
+      "aspect_deg": 180.0,
+      "dist_to_river_km": 1.33
+    },
+    {
+      "lat": 27.57679,
+      "lon": 95.10291,
+      "elevation_m": 109.0,
+      "slope_deg": 0.01,
+      "aspect_deg": 196.6,
+      "dist_to_river_km": 1.369
+    },
+    {
+      "lat": 27.57679,
+      "lon": 95.17291,
+      "elevation_m": 110.0,
+      "slope_deg": 0.01,
+      "aspect_deg": 221.8,
+      "dist_to_river_km": 0.638
+    },
+    {
+      "lat": 27.57679,
+      "lon": 95.24291,
+      "elevation_m": 110.0,
+      "slope_deg": 0.01,
+      "aspect_deg": 221.8,
+      "dist_to_river_km": 0.17
+    },
+    {
+      "lat": 27.64679,
+      "lon": 95.24291,
+      "elevation_m": 115.0,
+      "slope_deg": 0.05,
+      "aspect_deg": 156.0,
+      "dist_to_river_km": 0.93
+    }
+  ]
+}

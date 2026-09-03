@@ -1,0 +1,55 @@
+{
+  "trained_at": "2026-09-03T15:05:29.923434Z",
+  "feature_columns": [
+    "elevation_m",
+    "slope_deg",
+    "dist_to_river_km",
+    "rainfall_24h_mm",
+    "rainfall_7d_mm",
+    "rainfall_30d_mm",
+    "soil_moisture_subsurface",
+    "river_discharge_anomaly"
+  ],
+  "n_grid_points": 63,
+  "n_training_rows": 8883,
+  "soil_moisture_fallback_used": false,
+  "discharge_fallback_used": false,
+  "train_start": "2024-08-29",
+  "train_end": "2026-08-29",
+  "sample_stride_days": 5,
+  "flood": {
+    "auc": 0.6916,
+    "accuracy": 0.6415,
+    "positive_rate": 0.5986,
+    "n_train": 7106,
+    "n_test": 1777,
+    "feature_importance": {
+      "elevation_m": 0.0874,
+      "slope_deg": 0.0698,
+      "dist_to_river_km": 0.1256,
+      "rainfall_24h_mm": 0.085,
+      "rainfall_7d_mm": 0.0947,
+      "rainfall_30d_mm": 0.1355,
+      "soil_moisture_subsurface": 0.0973,
+      "river_discharge_anomaly": 0.3046
+    }
+  },
+  "landslide": {
+    "auc": 0.75,
+    "accuracy": 0.7968,
+    "positive_rate": 0.1982,
+    "n_train": 7106,
+    "n_test": 1777,
+    "feature_importance": {
+      "elevation_m": 0.0445,
+      "slope_deg": 0.0404,
+      "dist_to_river_km": 0.0443,
+      "rainfall_24h_mm": 0.0501,
+      "rainfall_7d_mm": 0.12,
+      "rainfall_30d_mm": 0.0483,
+      "soil_moisture_subsurface": 0.6051,
+      "river_discharge_anomaly": 0.0473
+    }
+  },
+  "label_methodology": "Hybrid: physically-informed susceptibility formula (see ml/labels.py) boosted by real historical event anchors (DFO floods, NASA GLC landslides). Not trained on a dense confirmed-incident ground truth - see backend/data/SOURCES.md."
+}
