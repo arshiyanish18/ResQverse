@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 
+const API_BASE_URL = "https://resqverse-sgqz.onrender.com";
+
 function RelocationPlanner() {
   const [recommendations, setRecommendations] = useState([]);
   const [villages, setVillages] = useState([]);
@@ -12,7 +14,7 @@ function RelocationPlanner() {
 
   // Load villages
   useEffect(() => {
-    fetch("http://127.0.0.1:8000/api/relocation/villages")
+    fetch(`${API_BASE_URL}/api/relocation/villages`)
       .then((res) => {
         if (!res.ok) {
           throw new Error("Failed to load villages");
@@ -32,7 +34,7 @@ function RelocationPlanner() {
 
   // Load default recommendations
   useEffect(() => {
-    fetch("http://127.0.0.1:8000/api/relocation/recommend", {
+    fetch(`${API_BASE_URL}/api/relocation/recommend`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -82,7 +84,7 @@ function RelocationPlanner() {
 
     try {
       const response = await fetch(
-        "http://127.0.0.1:8000/api/relocation/recommend",
+        `${API_BASE_URL}/api/relocation/recommend`,
         {
           method: "POST",
           headers: {
@@ -106,6 +108,7 @@ function RelocationPlanner() {
       setRecommendations(data.recommendations || []);
     } catch (err) {
       console.error("Recommendation error:", err);
+
       setError(
         err.message || "Unable to load relocation recommendations."
       );
@@ -407,11 +410,9 @@ function RelocationPlanner() {
           </div>
 
           <div className="ai-factors">
-
             <span>✓ Low hazard exposure</span>
             <span>✓ Sufficient capacity</span>
             <span>✓ Accessible infrastructure</span>
-
           </div>
 
         </section>
@@ -502,6 +503,7 @@ function RelocationPlanner() {
     </div>
   );
 }
+
 
 /* SAFE SITE COMPONENT */
 function SafeSite(props) {
