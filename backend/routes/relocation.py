@@ -13,7 +13,7 @@ def get_villages():
     villages = []
 
     for _, row in df.iterrows():
-        villages.append({
+        village = {
             "village_name": row["village_name"],
             "location_code": int(row["location_code"]),
             "population": int(row["population"]),
@@ -23,7 +23,16 @@ def get_villages():
             "accessibility_score": round(
                 float(row["accessibility_score"]), 4
             ),
-        })
+        }
+
+        # Add coordinates when available
+        if pd.notna(row.get("longitude")):
+            village["longitude"] = float(row["longitude"])
+
+        if pd.notna(row.get("latitude")):
+            village["latitude"] = float(row["latitude"])
+
+        villages.append(village)
 
     return {
         "status": "SUCCESS",
@@ -55,7 +64,6 @@ def recommend_relocation(data: dict):
             .copy()
         )
 
-        # Use the existing overall relocation score
         results["recommendation_score"] = (
             results["final_relocation_score"]
         )
@@ -67,7 +75,6 @@ def recommend_relocation(data: dict):
 
     else:
 
-        # Find selected village
         selected_rows = df[
             df["village_name"].astype(str).str.strip()
             == str(selected_village).strip()
@@ -128,10 +135,10 @@ def recommend_relocation(data: dict):
         # --------------------------------------------------
         # Personalized recommendation score
         #
-        # Safety       = 45%
-        # Capacity     = 25%
-        # Accessibility= 15%
-        # Proximity    = 15%
+        # Safety        = 45%
+        # Capacity      = 25%
+        # Accessibility = 15%
+        # Proximity     = 15%
         # --------------------------------------------------
 
         results["recommendation_score"] = (
@@ -141,11 +148,7 @@ def recommend_relocation(data: dict):
             + 0.15 * results["proximity_score"]
         )
 
-        # --------------------------------------------------
-        # IMPORTANT:
         # Sort using the SAME score we display
-        # --------------------------------------------------
-
         results = (
             results.sort_values(
                 "recommendation_score",
@@ -170,8 +173,7 @@ def recommend_relocation(data: dict):
             row["recommendation_score"]
         )
 
-        recommendations.append({
-
+        recommendation = {
             "village_name": row["village_name"],
 
             "location_code": int(
@@ -207,7 +209,20 @@ def recommend_relocation(data: dict):
                 float(row["hub_distance_km"]),
                 2
             ),
-        })
+        }
+
+        # Add coordinates when available
+        if pd.notna(row.get("longitude")):
+            recommendation["longitude"] = float(
+                row["longitude"]
+            )
+
+        if pd.notna(row.get("latitude")):
+            recommendation["latitude"] = float(
+                row["latitude"]
+            )
+
+        recommendations.append(recommendation)
 
     return {
         "status": "SUCCESS",
