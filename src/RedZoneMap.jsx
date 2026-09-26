@@ -318,10 +318,7 @@ function RedZoneMap() {
 
                 return (
                   <div
-                    key={
-                      village.village_name ||
-                      index
-                    }
+                    key={village.location_code}
                   >
 
                     <Circle
@@ -502,10 +499,7 @@ function RedZoneMap() {
                       ? "selected"
                       : ""
                   }`}
-                  key={
-                    village.village_name ||
-                    index
-                  }
+                  key={village.location_code}
                   onClick={() =>
                     setSelectedVillage(
                       village

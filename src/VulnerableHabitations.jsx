@@ -511,10 +511,7 @@ function VulnerableHabitations() {
 
                   <button
                     className="gov-table-row"
-                    key={
-                      village.village_name ||
-                      index
-                    }
+                    key={village.location_code}
                     onClick={() =>
                       setSelected(
                         village
