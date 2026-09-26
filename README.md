@@ -46,3 +46,27 @@ Village & Geographic Data
                   ?
                   ?
            React Frontend
+## Team Contributions
+
+### Backend
+
+* Built the FastAPI backend and API endpoints.
+* Developed the relocation scoring and personalized recommendation logic.
+* Integrated village risk, safety, accessibility, capacity, environment, and location data.
+* Added village coordinates to the relocation API.
+* Developed and validated the prediction backend.
+* Tested backend APIs and deployment.
+
+### Frontend
+
+* Built and integrated the React user interface.
+* Developed the interactive Red Zone Map and village visualization.
+* Integrated relocation recommendations with the backend APIs.
+* Implemented village selection, recommendation cards, map markers, and user interactions.
+* Tested and deployed the frontend.
+
+### Shared
+
+* Project planning and system integration.
+* End-to-end testing and debugging.
+* Documentation and final project validation.
