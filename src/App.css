@@ -1053,7 +1053,7 @@ nav {
   color: #102a43;
 }
 /* =========================================
-RED-ZONE MAP — PROFESSIONAL UI
+RED-ZONE MAP â€” PROFESSIONAL UI
 ========================================= */
 
 .red-zone-page {
@@ -1455,7 +1455,7 @@ grid-template-columns: 1fr;
 
 /* =========================================================
    RELOCATION PLANNER
-   Clean • Spacious • Professional
+   Clean â€¢ Spacious â€¢ Professional
    ========================================================= */
 
 .relocation-page {
@@ -2279,7 +2279,7 @@ grid-template-columns: 1fr;
 /* =========================================================
    RESQ - RED ZONE MAP + VULNERABLE HABITATIONS
    POLISHED UI
-   =============================== RED ZONE MAP — CLEAN MODERN DESIGN ========================================================= */ .red-zone-page { width: 100%; max-width: 1180px; margin: 0 auto; padding: 8px 10px 50px; color: #102a43; } /* HEADER */ .red-zone-header { display: flex; justify-content: space-between; align-items: flex-start; gap: 30px; margin-bottom: 28px; } .red-title-row { display: flex; align-items: center; gap: 14px; } .red-title-icon { width: 44px; height: 44px; display: grid; place-items: center; border-radius: 12px; background: #fdf0f0; color: #c92a2a; font-size: 19px; } .red-zone-header .eyebrow { margin: 0; color: #c92a2a; font-size: 8px; font-weight: 800; letter-spacing: 1.2px; } .red-zone-header h1 { margin: 5px 0 0; color: #102a43; font-size: 30px; font-weight: 750; letter-spacing: -0.5px; } .red-zone-description { margin: 12px 0 0 58px; max-width: 610px; color: #627d98; font-size: 12px; line-height: 1.7; } .map-status { display: flex; align-items: center; gap: 8px; padding: 10px 14px; border: 1px solid #d7eee3; border-radius: 20px; background: #f5fbf8; color: #18794e; font-size: 8px; font-weight: 750; white-space: nowrap; } .map-status .status-dot { width: 7px; height: 7px; border-radius: 50%; background: #20a36a; } /* ========================================================= SUMMARY CARDS ========================================================= */ .red-summary { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-bottom: 26px; } .red-summary-card { display: flex; align-items: center; gap: 13px; min-height: 88px; padding: 16px 17px; border: 1px solid #e1e9ef; border-radius: 14px; background: #ffffff; transition: transform 0.2s ease, box-shadow 0.2s ease; } .red-summary-card:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(16, 42, 67, 0.06); } .red-summary-icon { width: 38px; height: 38px; flex-shrink: 0; display: grid; place-items: center; border-radius: 10px; font-size: 14px; } .critical-icon { background: #fff1f1; color: #c92a2a; } .high-icon { background: #fff6e9; color: #d97706; } .population-icon { background: #edf8f8; color: #087f8c; } .score-icon { background: #fff8e8; color: #b26a00; } .red-summary-card span { display: block; color: #829ab1; font-size: 7px; font-weight: 800; letter-spacing: 0.5px; } .red-summary-card strong { display: block; margin-top: 4px; color: #102a43; font-size: 21px; line-height: 1; } .red-summary-card p { margin: 4px 0 0; color: #9fb3c8; font-size: 8px; } /* ========================================================= MAP CONTAINER ========================================================= */ .risk-map-panel { overflow: hidden; margin-bottom: 28px; border: 1px solid #e0e8ee; border-radius: 16px; background: #ffffff; box-shadow: 0 5px 20px rgba(16, 42, 67, 0.035); } .map-toolbar { display: flex; justify-content: space-between; align-items: center; padding: 16px 20px; border-bottom: 1px solid #edf2f5; } .map-heading { display: flex; align-items: center; gap: 10px; } .map-heading-icon { width: 34px; height: 34px; display: grid; place-items: center; border-radius: 9px; background: #eef8f8; color: #087f8c; } .map-heading strong { display: block; color: #243b53; font-size: 11px; } .map-heading span { display: block; margin-top: 3px; color: #829ab1; font-size: 7px; } .map-controls { display: flex; gap: 5px; } .map-controls button { width: 30px; height: 30px; border: 1px solid #e0e8ee; border-radius: 7px; background: #ffffff; color: #486581; font-size: 13px; cursor: pointer; transition: 0.15s ease; } .map-controls button:hover { border-color: #b8c9d6; background: #f7fafb; } /* ========================================================= MAP ========================================================= */ .fake-map { position: relative; height: 430px; overflow: hidden; background: radial-gradient( circle at 30% 40%, rgba(255, 255, 255, 0.75), transparent 30% ), linear-gradient( 135deg, #edf6f4, #e7f0ee 50%, #f3f6f3 ); } .map-grid { position: absolute; inset: 0; opacity: 0.3; background-image: linear-gradient(#a9c4be 1px, transparent 1px), linear-gradient(90deg, #a9c4be 1px, transparent 1px); background-size: 42px 42px; } /* MAP TERRAIN */ .map-terrain { position: absolute; border: 1px solid rgba(92, 130, 124, 0.14); background: rgba(255, 255, 255, 0.18); } .terrain-one { width: 510px; height: 245px; top: 14%; left: 9%; border-radius: 45% 55% 58% 42%; transform: rotate(-10deg); } .terrain-two { width: 360px; height: 210px; top: 28%; right: 8%; border-radius: 58% 42% 45% 55%; transform: rotate(12deg); } .terrain-three { width: 270px; height: 150px; left: 38%; bottom: -25px; border-radius: 60% 40% 55% 45%; } /* ========================================================= MAP MARKERS ========================================================= */ .map-zone { position: absolute; z-index: 5; width: 68px; height: 68px; display: flex; flex-direction: column; justify-content: center; align-items: center; border: 3px solid rgba(255, 255, 255, 0.85); border-radius: 50%; color: #ffffff; cursor: pointer; box-shadow: 0 7px 22px rgba(16, 42, 67, 0.18); transition: transform 0.2s ease, box-shadow 0.2s ease; } .map-zone:hover { transform: scale(1.1); box-shadow: 0 10px 28px rgba(16, 42, 67, 0.24); } .map-zone strong { font-size: 16px; line-height: 1; } .map-zone small { margin-top: 4px; font-size: 6px; font-weight: 800; letter-spacing: 0.7px; } .zone-a { top: 24%; left: 25%; background: #c92a2a; } .zone-b { top: 21%; right: 27%; background: #d97706; } .zone-c { bottom: 20%; left: 46%; background: #d97706; } .zone-d { right: 13%; bottom: 17%; background: #d69e16; } /* MARKER PULSE */ .map-zone-pulse { position: absolute; inset: -9px; z-index: -1; border-radius: 50%; opacity: 0.18; animation: markerPulse 2.6s ease-out infinite; } .critical-pulse { background: #c92a2a; } .high-pulse { background: #d97706; } .moderate-pulse { background: #d69e16; } @keyframes markerPulse { 0% { transform: scale(0.8); opacity: 0.25; } 70% { transform: scale(1.15); opacity: 0; } 100% { opacity: 0; } } /* ========================================================= LEGEND ========================================================= */ .map-legend { position: absolute; z-index: 10; left: 18px; bottom: 18px; width: 125px; padding: 13px; border: 1px solid rgba(224, 232, 238, 0.9); border-radius: 10px; background: rgba(255, 255, 255, 0.94); box-shadow: 0 5px 18px rgba(16, 42, 67, 0.07); } .map-legend > strong { display: block; margin-bottom: 9px; color: #486581; font-size: 7px; letter-spacing: 0.5px; } .map-legend div { display: flex; align-items: center; gap: 7px; margin-top: 7px; color: #627d98; font-size: 7px; } .legend-dot { width: 7px; height: 7px; flex-shrink: 0; border-radius: 50%; } .critical-dot { background: #c92a2a; } .high-dot { background: #d97706; } .moderate-dot { background: #d69e16; } .map-note { position: absolute; right: 18px; bottom: 18px; padding: 8px 11px; border: 1px solid rgba(224, 232, 238, 0.8); border-radius: 7px; background: rgba(255, 255, 255, 0.9); color: #829ab1; font-size: 7px; } /* ========================================================= ZONE SECTION ========================================================= */ .zone-list-section { overflow: hidden; border: 1px solid #e0e8ee; border-radius: 16px; background: #ffffff; box-shadow: 0 5px 20px rgba(16, 42, 67, 0.03); } .zone-list-section .section-header { padding: 20px 22px; border-bottom: 1px solid #edf2f5; } .zone-list-section .section-header h2 { margin: 5px 0 0; color: #102a43; font-size: 19px; } .zone-count { padding: 7px 10px; border: 1px solid #e2e9ee; border-radius: 20px; background: #f8fafb; color: #627d98; font-size: 7px; font-weight: 800; } /* ========================================================= ZONE CARDS ========================================================= */ .zone-list { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; padding: 18px; background: #f8fafb; } .zone-card { padding: 17px; border: 1px solid #e1e8ed; border-radius: 13px; background: #ffffff; cursor: pointer; transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease; } .zone-card:hover, .zone-card.selected-zone { transform: translateY(-2px); border-color: #d6b1b1; box-shadow: 0 8px 22px rgba(16, 42, 67, 0.06); } .zone-card-top { display: flex; align-items: center; gap: 11px; } .zone-icon { width: 36px; height: 36px; flex-shrink: 0; display: grid; place-items: center; border-radius: 9px; background: #fff2f2; color: #c92a2a; font-size: 14px; } .zone-name { flex: 1; min-width: 0; } .zone-name h3 { margin: 0; color: #243b53; font-size: 12px; } .zone-name p { margin: 4px 0 0; color: #829ab1; font-size: 7px; } .zone-risk { padding: 5px 8px; border-radius: 5px; font-size: 6px; font-weight: 800; letter-spacing: 0.4px; } .zone-risk.critical { background: #fff0f0; color: #c92a2a; } .zone-risk.high { background: #fff5e8; color: #d97706; } .zone-risk.moderate { background: #fff7e5; color: #b26a00; } /* DETAILS */ .zone-card-details { display: grid; grid-template-columns: 0.75fr 1fr 1.5fr; gap: 15px; margin-top: 16px; padding: 14px 0; border-top: 1px solid #edf2f5; border-bottom: 1px solid #edf2f5; } .zone-detail span { display: block; color: #9fb3c8; font-size: 6px; font-weight: 800; letter-spacing: 0.3px; } .zone-detail strong { display: block; margin-top: 5px; color: #486581; font-size: 9px; line-height: 1.4; } .zone-detail .risk-number { color: #c92a2a; font-size: 16px; } /* CARD FOOTER */ .zone-card-bottom { display: flex; align-items: center; gap: 12px; margin-top: 13px; } .zone-progress { flex: 1; height: 4px; overflow: hidden; border-radius: 10px; background: #edf2f5; } .zone-progress div { height: 100%; border-radius: 10px; background: #c92a2a; } .zone-card-bottom button { padding: 0; border: none; background: transparent; color: #087f8c; font-size: 7px; font-weight: 800; cursor: pointer; white-space: nowrap; } /* ========================================================= DETAILS POPUP ========================================================= */ .zone-overlay { position: fixed; inset: 0; z-index: 1000; display: flex; align-items: center; justify-content: center; padding: 20px; background: rgba(7, 27, 45, 0.45); backdrop-filter: blur(5px); } .zone-details-panel { position: relative; width: min(430px, 100%); padding: 28px; border: 1px solid #e1e8ed; border-radius: 17px; background: #ffffff; box-shadow: 0 25px 70px rgba(7, 27, 45, 0.2); } .zone-close { position: absolute; top: 14px; right: 14px; width: 28px; height: 28px; border: none; border-radius: 50%; background: #f2f5f7; color: #627d98; font-size: 17px; cursor: pointer; } .zone-details-panel h2 { margin: 6px 0 3px; color: #102a43; font-size: 22px; } .zone-detail-location { margin: 0 0 19px; color: #627d98; font-size: 9px; } .zone-large-score { padding: 20px; text-align: center; border-radius: 11px; background: #fff7f7; } .zone-large-score span { display: block; color: #829ab1; font-size: 7px; font-weight: 800; } .zone-large-score strong { display: block; margin: 5px 0; color: #c92a2a; font-size: 36px; } .zone-large-score small { color: #c92a2a; font-size: 7px; font-weight: 800; } .zone-modal-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 12px; } .zone-modal-grid div { padding: 13px; border-radius: 9px; background: #f7fafb; } .zone-modal-grid span { display: block; color: #829ab1; font-size: 6px; font-weight: 800; } .zone-modal-grid strong { display: block; margin-top: 5px; color: #243b53; font-size: 9px; line-height: 1.4; } .zone-modal-button { width: 100%; margin-top: 17px; padding: 11px; border: none; border-radius: 8px; background: #102a43; color: #ffffff; font-size: 8px; font-weight: 800; cursor: pointer; } /* ========================================================= RESPONSIVE ========================================================= */ @media (max-width: 1000px) { .red-summary { grid-template-columns: repeat(2, 1fr); } .zone-list { grid-template-columns: 1fr; } } @media (max-width: 700px) { .red-zone-header { flex-direction: column; } .red-zone-description { margin-left: 0; } .fake-map { height: 380px; } .zone-a { left: 17%; } .zone-b { right: 17%; } .zone-c { left: 37%; } .zone-d { right: 7%; } } @media (max-width: 520px) { .red-summary { grid-template-columns: 1fr; } .zone-card-details { grid-template-columns: 1fr 1fr; } .zone-detail:last-child { grid-column: 1 / -1; } .map-note { display: none; } .map-legend { left: 10px; bottom: 10px; } }
+   =============================== RED ZONE MAP â€” CLEAN MODERN DESIGN ========================================================= */ .red-zone-page { width: 100%; max-width: 1180px; margin: 0 auto; padding: 8px 10px 50px; color: #102a43; } /* HEADER */ .red-zone-header { display: flex; justify-content: space-between; align-items: flex-start; gap: 30px; margin-bottom: 28px; } .red-title-row { display: flex; align-items: center; gap: 14px; } .red-title-icon { width: 44px; height: 44px; display: grid; place-items: center; border-radius: 12px; background: #fdf0f0; color: #c92a2a; font-size: 19px; } .red-zone-header .eyebrow { margin: 0; color: #c92a2a; font-size: 8px; font-weight: 800; letter-spacing: 1.2px; } .red-zone-header h1 { margin: 5px 0 0; color: #102a43; font-size: 30px; font-weight: 750; letter-spacing: -0.5px; } .red-zone-description { margin: 12px 0 0 58px; max-width: 610px; color: #627d98; font-size: 12px; line-height: 1.7; } .map-status { display: flex; align-items: center; gap: 8px; padding: 10px 14px; border: 1px solid #d7eee3; border-radius: 20px; background: #f5fbf8; color: #18794e; font-size: 8px; font-weight: 750; white-space: nowrap; } .map-status .status-dot { width: 7px; height: 7px; border-radius: 50%; background: #20a36a; } /* ========================================================= SUMMARY CARDS ========================================================= */ .red-summary { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-bottom: 26px; } .red-summary-card { display: flex; align-items: center; gap: 13px; min-height: 88px; padding: 16px 17px; border: 1px solid #e1e9ef; border-radius: 14px; background: #ffffff; transition: transform 0.2s ease, box-shadow 0.2s ease; } .red-summary-card:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(16, 42, 67, 0.06); } .red-summary-icon { width: 38px; height: 38px; flex-shrink: 0; display: grid; place-items: center; border-radius: 10px; font-size: 14px; } .critical-icon { background: #fff1f1; color: #c92a2a; } .high-icon { background: #fff6e9; color: #d97706; } .population-icon { background: #edf8f8; color: #087f8c; } .score-icon { background: #fff8e8; color: #b26a00; } .red-summary-card span { display: block; color: #829ab1; font-size: 7px; font-weight: 800; letter-spacing: 0.5px; } .red-summary-card strong { display: block; margin-top: 4px; color: #102a43; font-size: 21px; line-height: 1; } .red-summary-card p { margin: 4px 0 0; color: #9fb3c8; font-size: 8px; } /* ========================================================= MAP CONTAINER ========================================================= */ .risk-map-panel { overflow: hidden; margin-bottom: 28px; border: 1px solid #e0e8ee; border-radius: 16px; background: #ffffff; box-shadow: 0 5px 20px rgba(16, 42, 67, 0.035); } .map-toolbar { display: flex; justify-content: space-between; align-items: center; padding: 16px 20px; border-bottom: 1px solid #edf2f5; } .map-heading { display: flex; align-items: center; gap: 10px; } .map-heading-icon { width: 34px; height: 34px; display: grid; place-items: center; border-radius: 9px; background: #eef8f8; color: #087f8c; } .map-heading strong { display: block; color: #243b53; font-size: 11px; } .map-heading span { display: block; margin-top: 3px; color: #829ab1; font-size: 7px; } .map-controls { display: flex; gap: 5px; } .map-controls button { width: 30px; height: 30px; border: 1px solid #e0e8ee; border-radius: 7px; background: #ffffff; color: #486581; font-size: 13px; cursor: pointer; transition: 0.15s ease; } .map-controls button:hover { border-color: #b8c9d6; background: #f7fafb; } /* ========================================================= MAP ========================================================= */ .fake-map { position: relative; height: 430px; overflow: hidden; background: radial-gradient( circle at 30% 40%, rgba(255, 255, 255, 0.75), transparent 30% ), linear-gradient( 135deg, #edf6f4, #e7f0ee 50%, #f3f6f3 ); } .map-grid { position: absolute; inset: 0; opacity: 0.3; background-image: linear-gradient(#a9c4be 1px, transparent 1px), linear-gradient(90deg, #a9c4be 1px, transparent 1px); background-size: 42px 42px; } /* MAP TERRAIN */ .map-terrain { position: absolute; border: 1px solid rgba(92, 130, 124, 0.14); background: rgba(255, 255, 255, 0.18); } .terrain-one { width: 510px; height: 245px; top: 14%; left: 9%; border-radius: 45% 55% 58% 42%; transform: rotate(-10deg); } .terrain-two { width: 360px; height: 210px; top: 28%; right: 8%; border-radius: 58% 42% 45% 55%; transform: rotate(12deg); } .terrain-three { width: 270px; height: 150px; left: 38%; bottom: -25px; border-radius: 60% 40% 55% 45%; } /* ========================================================= MAP MARKERS ========================================================= */ .map-zone { position: absolute; z-index: 5; width: 68px; height: 68px; display: flex; flex-direction: column; justify-content: center; align-items: center; border: 3px solid rgba(255, 255, 255, 0.85); border-radius: 50%; color: #ffffff; cursor: pointer; box-shadow: 0 7px 22px rgba(16, 42, 67, 0.18); transition: transform 0.2s ease, box-shadow 0.2s ease; } .map-zone:hover { transform: scale(1.1); box-shadow: 0 10px 28px rgba(16, 42, 67, 0.24); } .map-zone strong { font-size: 16px; line-height: 1; } .map-zone small { margin-top: 4px; font-size: 6px; font-weight: 800; letter-spacing: 0.7px; } .zone-a { top: 24%; left: 25%; background: #c92a2a; } .zone-b { top: 21%; right: 27%; background: #d97706; } .zone-c { bottom: 20%; left: 46%; background: #d97706; } .zone-d { right: 13%; bottom: 17%; background: #d69e16; } /* MARKER PULSE */ .map-zone-pulse { position: absolute; inset: -9px; z-index: -1; border-radius: 50%; opacity: 0.18; animation: markerPulse 2.6s ease-out infinite; } .critical-pulse { background: #c92a2a; } .high-pulse { background: #d97706; } .moderate-pulse { background: #d69e16; } @keyframes markerPulse { 0% { transform: scale(0.8); opacity: 0.25; } 70% { transform: scale(1.15); opacity: 0; } 100% { opacity: 0; } } /* ========================================================= LEGEND ========================================================= */ .map-legend { position: absolute; z-index: 10; left: 18px; bottom: 18px; width: 125px; padding: 13px; border: 1px solid rgba(224, 232, 238, 0.9); border-radius: 10px; background: rgba(255, 255, 255, 0.94); box-shadow: 0 5px 18px rgba(16, 42, 67, 0.07); } .map-legend > strong { display: block; margin-bottom: 9px; color: #486581; font-size: 7px; letter-spacing: 0.5px; } .map-legend div { display: flex; align-items: center; gap: 7px; margin-top: 7px; color: #627d98; font-size: 7px; } .legend-dot { width: 7px; height: 7px; flex-shrink: 0; border-radius: 50%; } .critical-dot { background: #c92a2a; } .high-dot { background: #d97706; } .moderate-dot { background: #d69e16; } .map-note { position: absolute; right: 18px; bottom: 18px; padding: 8px 11px; border: 1px solid rgba(224, 232, 238, 0.8); border-radius: 7px; background: rgba(255, 255, 255, 0.9); color: #829ab1; font-size: 7px; } /* ========================================================= ZONE SECTION ========================================================= */ .zone-list-section { overflow: hidden; border: 1px solid #e0e8ee; border-radius: 16px; background: #ffffff; box-shadow: 0 5px 20px rgba(16, 42, 67, 0.03); } .zone-list-section .section-header { padding: 20px 22px; border-bottom: 1px solid #edf2f5; } .zone-list-section .section-header h2 { margin: 5px 0 0; color: #102a43; font-size: 19px; } .zone-count { padding: 7px 10px; border: 1px solid #e2e9ee; border-radius: 20px; background: #f8fafb; color: #627d98; font-size: 7px; font-weight: 800; } /* ========================================================= ZONE CARDS ========================================================= */ .zone-list { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; padding: 18px; background: #f8fafb; } .zone-card { padding: 17px; border: 1px solid #e1e8ed; border-radius: 13px; background: #ffffff; cursor: pointer; transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease; } .zone-card:hover, .zone-card.selected-zone { transform: translateY(-2px); border-color: #d6b1b1; box-shadow: 0 8px 22px rgba(16, 42, 67, 0.06); } .zone-card-top { display: flex; align-items: center; gap: 11px; } .zone-icon { width: 36px; height: 36px; flex-shrink: 0; display: grid; place-items: center; border-radius: 9px; background: #fff2f2; color: #c92a2a; font-size: 14px; } .zone-name { flex: 1; min-width: 0; } .zone-name h3 { margin: 0; color: #243b53; font-size: 12px; } .zone-name p { margin: 4px 0 0; color: #829ab1; font-size: 7px; } .zone-risk { padding: 5px 8px; border-radius: 5px; font-size: 6px; font-weight: 800; letter-spacing: 0.4px; } .zone-risk.critical { background: #fff0f0; color: #c92a2a; } .zone-risk.high { background: #fff5e8; color: #d97706; } .zone-risk.moderate { background: #fff7e5; color: #b26a00; } /* DETAILS */ .zone-card-details { display: grid; grid-template-columns: 0.75fr 1fr 1.5fr; gap: 15px; margin-top: 16px; padding: 14px 0; border-top: 1px solid #edf2f5; border-bottom: 1px solid #edf2f5; } .zone-detail span { display: block; color: #9fb3c8; font-size: 6px; font-weight: 800; letter-spacing: 0.3px; } .zone-detail strong { display: block; margin-top: 5px; color: #486581; font-size: 9px; line-height: 1.4; } .zone-detail .risk-number { color: #c92a2a; font-size: 16px; } /* CARD FOOTER */ .zone-card-bottom { display: flex; align-items: center; gap: 12px; margin-top: 13px; } .zone-progress { flex: 1; height: 4px; overflow: hidden; border-radius: 10px; background: #edf2f5; } .zone-progress div { height: 100%; border-radius: 10px; background: #c92a2a; } .zone-card-bottom button { padding: 0; border: none; background: transparent; color: #087f8c; font-size: 7px; font-weight: 800; cursor: pointer; white-space: nowrap; } /* ========================================================= DETAILS POPUP ========================================================= */ .zone-overlay { position: fixed; inset: 0; z-index: 1000; display: flex; align-items: center; justify-content: center; padding: 20px; background: rgba(7, 27, 45, 0.45); backdrop-filter: blur(5px); } .zone-details-panel { position: relative; width: min(430px, 100%); padding: 28px; border: 1px solid #e1e8ed; border-radius: 17px; background: #ffffff; box-shadow: 0 25px 70px rgba(7, 27, 45, 0.2); } .zone-close { position: absolute; top: 14px; right: 14px; width: 28px; height: 28px; border: none; border-radius: 50%; background: #f2f5f7; color: #627d98; font-size: 17px; cursor: pointer; } .zone-details-panel h2 { margin: 6px 0 3px; color: #102a43; font-size: 22px; } .zone-detail-location { margin: 0 0 19px; color: #627d98; font-size: 9px; } .zone-large-score { padding: 20px; text-align: center; border-radius: 11px; background: #fff7f7; } .zone-large-score span { display: block; color: #829ab1; font-size: 7px; font-weight: 800; } .zone-large-score strong { display: block; margin: 5px 0; color: #c92a2a; font-size: 36px; } .zone-large-score small { color: #c92a2a; font-size: 7px; font-weight: 800; } .zone-modal-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 12px; } .zone-modal-grid div { padding: 13px; border-radius: 9px; background: #f7fafb; } .zone-modal-grid span { display: block; color: #829ab1; font-size: 6px; font-weight: 800; } .zone-modal-grid strong { display: block; margin-top: 5px; color: #243b53; font-size: 9px; line-height: 1.4; } .zone-modal-button { width: 100%; margin-top: 17px; padding: 11px; border: none; border-radius: 8px; background: #102a43; color: #ffffff; font-size: 8px; font-weight: 800; cursor: pointer; } /* ========================================================= RESPONSIVE ========================================================= */ @media (max-width: 1000px) { .red-summary { grid-template-columns: repeat(2, 1fr); } .zone-list { grid-template-columns: 1fr; } } @media (max-width: 700px) { .red-zone-header { flex-direction: column; } .red-zone-description { margin-left: 0; } .fake-map { height: 380px; } .zone-a { left: 17%; } .zone-b { right: 17%; } .zone-c { left: 37%; } .zone-d { right: 7%; } } @media (max-width: 520px) { .red-summary { grid-template-columns: 1fr; } .zone-card-details { grid-template-columns: 1fr 1fr; } .zone-detail:last-child { grid-column: 1 / -1; } .map-note { display: none; } .map-legend { left: 10px; bottom: 10px; } }
 
 
 /* =========================================================
@@ -3412,7 +3412,7 @@ grid-template-columns: 1fr;
 }
 
 /* =========================================================
-   SAFE SITES — CLEAN PROFESSIONAL DESIGN
+   SAFE SITES â€” CLEAN PROFESSIONAL DESIGN
    ========================================================= */
 
 .safe-sites-page {
@@ -4205,4 +4205,943 @@ grid-template-columns: 1fr;
     grid-template-columns: 1fr;
   }
 }
+.map-section {
+  margin-top: 30px;
+  background: #ffffff;
+  border: 1px solid #dfe5ec;
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 4px 15px rgba(16, 26, 43, 0.06);
+}
 
+.section-heading {
+  margin-bottom: 18px;
+}
+
+.section-label {
+  display: block;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  color: #64748b;
+  margin-bottom: 6px;
+}
+
+.section-heading h2 {
+  margin: 0;
+  color: #172033;
+  font-size: 22px;
+}
+
+.section-heading p {
+  margin: 6px 0 0;
+  color: #64748b;
+  font-size: 14px;
+}
+
+.relocation-map {
+  width: 100%;
+  height: 420px;
+  overflow: hidden;
+  border-radius: 10px;
+  border: 1px solid #d8dee7;
+}
+
+.relocation-map .leaflet-container {
+  width: 100%;
+  height: 100%;
+}
+.relocation-map-section {
+  margin-top: 30px;
+  background: #ffffff;
+  border: 1px solid #dfe5ec;
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 4px 15px rgba(16, 26, 43, 0.06);
+}
+
+.relocation-map-container {
+  width: 100%;
+  height: 450px;
+  margin-top: 20px;
+  overflow: hidden;
+  border-radius: 10px;
+  border: 1px solid #d8dee7;
+}
+
+.relocation-map-container .leaflet-container {
+  width: 100%;
+  height: 100%;
+}
+
+.map-legend {
+  display: flex;
+  gap: 25px;
+  align-items: center;
+  margin-top: 14px;
+  font-size: 13px;
+  color: #475569;
+}
+
+.map-legend-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.legend-marker {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.legend-marker.selected {
+  background: #dc2626;
+}
+
+.legend-marker.recommended {
+  background: #2563eb;
+}
+/* =========================================================
+   RESQVERSE GOVERNMENT GIS UI
+   ========================================================= */
+
+.gov-redzone-page,
+.gov-habitation-page {
+  color: #172033;
+  font-family: Inter, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", sans-serif;
+}
+
+.gov-page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 30px;
+  margin-bottom: 26px;
+  padding-bottom: 22px;
+  border-bottom: 1px solid #d9e0e8;
+}
+
+.gov-eyebrow {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  color: #526273;
+  margin-bottom: 8px;
+}
+
+.gov-page-header h1 {
+  margin: 0;
+  font-size: 30px;
+  font-weight: 750;
+  letter-spacing: -0.5px;
+  color: #162236;
+}
+
+.gov-page-header p {
+  margin: 8px 0 0;
+  color: #64748b;
+  font-size: 14px;
+  max-width: 700px;
+  line-height: 1.6;
+}
+
+.gov-live-status {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid #cbd5e1;
+  background: #ffffff;
+  padding: 9px 14px;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.8px;
+  color: #334155;
+}
+
+.gov-live-status span {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #16a34a;
+}
+
+.gov-stat-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+  margin-bottom: 24px;
+}
+
+.gov-stat-card {
+  background: #ffffff;
+  border: 1px solid #dbe2ea;
+  padding: 19px 20px;
+  min-height: 105px;
+  position: relative;
+}
+
+.gov-stat-card::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: #64748b;
+}
+
+.gov-stat-card.critical::before {
+  background: #dc2626;
+}
+
+.gov-stat-card.high::before {
+  background: #ea580c;
+}
+
+.gov-stat-card span {
+  display: block;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  color: #64748b;
+}
+
+.gov-stat-card strong {
+  display: block;
+  font-size: 27px;
+  margin-top: 8px;
+  color: #172033;
+}
+
+.gov-stat-card small {
+  color: #94a3b8;
+  font-size: 11px;
+}
+
+.gov-map-panel,
+.gov-data-panel,
+.gov-location-section {
+  background: #ffffff;
+  border: 1px solid #dbe2ea;
+  margin-bottom: 24px;
+}
+
+.gov-map-toolbar,
+.gov-data-toolbar {
+  padding: 20px 22px;
+  border-bottom: 1px solid #e2e8f0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+
+.gov-section-label {
+  display: block;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1.3px;
+  color: #64748b;
+  margin-bottom: 6px;
+}
+
+.gov-map-toolbar h2,
+.gov-data-toolbar h2,
+.gov-section-heading h2 {
+  margin: 0;
+  color: #172033;
+  font-size: 19px;
+}
+
+.gov-map-toolbar p {
+  margin: 5px 0 0;
+  font-size: 12px;
+  color: #64748b;
+}
+
+.gov-map-switch {
+  display: flex;
+  border: 1px solid #cbd5e1;
+}
+
+.gov-map-switch button {
+  border: 0;
+  background: #ffffff;
+  padding: 8px 14px;
+  font-size: 12px;
+  cursor: pointer;
+  color: #475569;
+}
+
+.gov-map-switch button + button {
+  border-left: 1px solid #cbd5e1;
+}
+
+.gov-map-switch button.active {
+  background: #172033;
+  color: #ffffff;
+}
+
+.gov-real-map {
+  height: 570px;
+  position: relative;
+}
+
+.gov-real-map .leaflet-container {
+  width: 100%;
+  height: 100%;
+}
+
+.gov-map-legend {
+  position: absolute;
+  z-index: 500;
+  bottom: 18px;
+  left: 18px;
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  background: rgba(255, 255, 255, 0.96);
+  border: 1px solid #cbd5e1;
+  padding: 10px 13px;
+  font-size: 11px;
+  color: #334155;
+}
+
+.gov-map-legend strong {
+  font-size: 10px;
+  letter-spacing: 0.7px;
+}
+
+.gov-map-legend div {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.gov-map-legend i {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.legend-critical {
+  background: #dc2626;
+}
+
+.legend-high {
+  background: #ea580c;
+}
+
+.legend-moderate {
+  background: #ca8a04;
+}
+
+.legend-low {
+  background: #16a34a;
+}
+
+.gov-map-loading {
+  position: absolute;
+  top: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 500;
+  background: #172033;
+  color: white;
+  padding: 8px 14px;
+  font-size: 11px;
+}
+
+.gov-map-error {
+  padding: 11px 20px;
+  background: #fef2f2;
+  border-bottom: 1px solid #fecaca;
+  color: #991b1b;
+  font-size: 12px;
+}
+
+.gov-popup {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  min-width: 150px;
+}
+
+.gov-popup strong {
+  font-size: 14px;
+  color: #172033;
+  margin-bottom: 3px;
+}
+
+.gov-popup span {
+  font-size: 11px;
+  color: #475569;
+}
+
+.gov-section-heading {
+  padding: 20px 22px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.gov-record-count {
+  font-size: 11px;
+  font-weight: 700;
+  color: #64748b;
+  border: 1px solid #dbe2ea;
+  padding: 7px 11px;
+}
+
+.gov-location-grid {
+  border-top: 1px solid #e2e8f0;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.gov-location-card {
+  text-align: left;
+  background: #ffffff;
+  border: 0;
+  border-bottom: 1px solid #e2e8f0;
+  padding: 17px 20px;
+  cursor: pointer;
+}
+
+.gov-location-card:nth-child(odd) {
+  border-right: 1px solid #e2e8f0;
+}
+
+.gov-location-card:hover,
+.gov-location-card.selected {
+  background: #f8fafc;
+}
+
+.gov-location-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.gov-location-top strong {
+  display: block;
+  font-size: 14px;
+  color: #172033;
+}
+
+.gov-location-top small {
+  display: block;
+  margin-top: 4px;
+  font-size: 11px;
+  color: #94a3b8;
+}
+
+.gov-location-top > span {
+  font-size: 22px;
+  font-weight: 800;
+}
+
+.gov-location-bottom {
+  margin-top: 13px;
+  padding-top: 10px;
+  border-top: 1px solid #edf2f7;
+  display: flex;
+  justify-content: space-between;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #64748b;
+}
+
+
+/* DATA TABLE */
+
+.gov-data-controls {
+  display: flex;
+  gap: 8px;
+}
+
+.gov-data-controls input,
+.gov-data-controls select {
+  height: 36px;
+  border: 1px solid #cbd5e1;
+  background: #ffffff;
+  padding: 0 11px;
+  font-size: 12px;
+  color: #334155;
+  outline: none;
+}
+
+.gov-data-controls input {
+  width: 210px;
+}
+
+.gov-data-controls input:focus,
+.gov-data-controls select:focus {
+  border-color: #64748b;
+}
+
+.gov-table-head,
+.gov-table-row {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1.5fr 1fr 1.2fr;
+  align-items: center;
+  column-gap: 20px;
+}
+
+.gov-table-head {
+  padding: 11px 20px;
+  background: #f1f5f9;
+  border-top: 1px solid #e2e8f0;
+  border-bottom: 1px solid #dbe2ea;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  color: #64748b;
+}
+
+.gov-table-row {
+  width: 100%;
+  text-align: left;
+  border: 0;
+  border-bottom: 1px solid #edf2f7;
+  background: #ffffff;
+  padding: 14px 20px;
+  cursor: pointer;
+  font-size: 12px;
+  color: #475569;
+}
+
+.gov-table-row:hover {
+  background: #f8fafc;
+}
+
+.gov-habitation-name {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+}
+
+.gov-habitation-name strong {
+  display: block;
+  color: #172033;
+  font-size: 13px;
+}
+
+.gov-habitation-name small {
+  display: block;
+  margin-top: 3px;
+  color: #94a3b8;
+  font-size: 10px;
+}
+
+.gov-home-icon {
+  width: 29px;
+  height: 29px;
+  display: grid;
+  place-items: center;
+  border: 1px solid #dbe2ea;
+  color: #475569;
+  background: #f8fafc;
+}
+
+.gov-risk-cell {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+
+.gov-risk-bar {
+  width: 75px;
+  height: 5px;
+  background: #e2e8f0;
+}
+
+.gov-risk-bar div {
+  height: 100%;
+  background: #dc2626;
+}
+
+.gov-risk-cell strong {
+  color: #172033;
+}
+
+.gov-priority {
+  width: max-content;
+  padding: 5px 8px;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+}
+
+.gov-priority.immediate {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+.gov-priority.shortterm {
+  background: #ffedd5;
+  color: #9a3412;
+}
+
+.gov-priority.mediumterm {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+.gov-priority.monitor {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.gov-empty {
+  padding: 45px;
+  text-align: center;
+  color: #94a3b8;
+  font-size: 13px;
+}
+
+.gov-error {
+  margin: 15px 20px;
+  padding: 11px 13px;
+  background: #fef2f2;
+  color: #991b1b;
+  border: 1px solid #fecaca;
+  font-size: 12px;
+}
+
+
+/* BUTTONS */
+
+.gov-header-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.gov-outline-button,
+.gov-primary-button {
+  height: 38px;
+  padding: 0 14px;
+  font-size: 11px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.gov-outline-button {
+  border: 1px solid #cbd5e1;
+  background: #ffffff;
+  color: #334155;
+}
+
+.gov-primary-button {
+  border: 1px solid #172033;
+  background: #172033;
+  color: #ffffff;
+}
+
+.gov-primary-button.full {
+  width: 100%;
+}
+
+
+/* MODAL */
+
+.gov-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.55);
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 25px;
+}
+
+.gov-modal {
+  width: min(570px, 100%);
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  padding: 28px;
+  position: relative;
+  box-shadow: 0 20px 50px rgba(15, 23, 42, 0.2);
+}
+
+.gov-modal-close {
+  position: absolute;
+  right: 15px;
+  top: 12px;
+  border: 0;
+  background: transparent;
+  font-size: 25px;
+  color: #64748b;
+  cursor: pointer;
+}
+
+.gov-modal h2 {
+  margin: 5px 0;
+  font-size: 24px;
+  color: #172033;
+}
+
+.gov-modal > p {
+  margin: 0 0 22px;
+  color: #64748b;
+  font-size: 12px;
+}
+
+.gov-detail-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  border-top: 1px solid #e2e8f0;
+  border-left: 1px solid #e2e8f0;
+  margin-bottom: 18px;
+}
+
+.gov-detail-grid div {
+  padding: 15px;
+  border-right: 1px solid #e2e8f0;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.gov-detail-grid span,
+.gov-modal-priority span {
+  display: block;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.8px;
+  color: #64748b;
+}
+
+.gov-detail-grid strong {
+  display: block;
+  margin-top: 6px;
+  color: #172033;
+  font-size: 18px;
+}
+
+.gov-modal-priority {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  padding: 13px;
+  margin-bottom: 18px;
+}
+
+.gov-modal-priority strong {
+  font-size: 11px;
+  color: #b91c1c;
+}
+
+
+/* RESPONSIVE */
+
+@media (max-width: 900px) {
+  .gov-stat-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .gov-table {
+    overflow-x: auto;
+  }
+
+  .gov-table-head,
+  .gov-table-row {
+    min-width: 800px;
+  }
+
+  .gov-location-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .gov-location-card:nth-child(odd) {
+    border-right: 0;
+  }
+}
+
+@media (max-width: 650px) {
+  .gov-page-header,
+  .gov-map-toolbar,
+  .gov-data-toolbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .gov-stat-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .gov-data-controls {
+    width: 100%;
+    flex-direction: column;
+  }
+
+  .gov-data-controls input {
+    width: 100%;
+  }
+
+  .gov-real-map {
+    height: 450px;
+  }
+}
+/* =====================================================
+   RELOCATION PLANNER GIS MAP
+   ===================================================== */
+
+.relocation-map-section {
+  margin-top: 30px;
+  background: #ffffff;
+  border: 1px solid #dbe2ea;
+  overflow: hidden;
+}
+
+.relocation-map-controls {
+  padding: 20px 22px;
+  border-bottom: 1px solid #e2e8f0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+
+.map-section-label {
+  display: block;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1.3px;
+  color: #64748b;
+  margin-bottom: 6px;
+}
+
+.relocation-map-controls h2 {
+  margin: 0;
+  font-size: 19px;
+  color: #172033;
+}
+
+.relocation-map-controls p {
+  margin: 5px 0 0;
+  font-size: 12px;
+  color: #64748b;
+}
+
+.relocation-map-switch {
+  display: flex;
+  border: 1px solid #cbd5e1;
+}
+
+.relocation-map-switch button {
+  border: 0;
+  background: #ffffff;
+  color: #475569;
+  padding: 8px 15px;
+  font-size: 11px;
+  cursor: pointer;
+}
+
+.relocation-map-switch button + button {
+  border-left: 1px solid #cbd5e1;
+}
+
+.relocation-map-switch button.active {
+  background: #172033;
+  color: #ffffff;
+}
+
+.relocation-map-container {
+  width: 100%;
+  height: 500px;
+  position: relative;
+}
+
+.relocation-map-container .leaflet-container {
+  width: 100%;
+  height: 100%;
+}
+
+.relocation-map-container .leaflet-control-zoom {
+  border: 1px solid #cbd5e1 !important;
+}
+
+.relocation-map-container .leaflet-control-zoom a {
+  color: #172033 !important;
+}
+
+.relocation-map-legend {
+  position: absolute;
+  left: 18px;
+  bottom: 18px;
+  z-index: 500;
+
+  display: flex;
+  align-items: center;
+  gap: 18px;
+
+  padding: 10px 14px;
+
+  background: rgba(255, 255, 255, 0.96);
+  border: 1px solid #cbd5e1;
+
+  font-size: 11px;
+  color: #475569;
+}
+
+.relocation-map-legend strong {
+  font-size: 9px;
+  letter-spacing: 0.8px;
+}
+
+.relocation-legend-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.relocation-legend-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.relocation-legend-dot.selected {
+  background: #dc2626;
+}
+
+.relocation-legend-dot.safe {
+  background: #2563eb;
+}
+
+.relocation-map-popup {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  min-width: 170px;
+}
+
+.relocation-map-popup strong {
+  font-size: 14px;
+  color: #172033;
+  margin-bottom: 2px;
+}
+
+.relocation-map-popup div {
+  font-size: 11px;
+  color: #475569;
+}
+
+.popup-status {
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.6px;
+  color: #b91c1c;
+}
+
+.popup-status.safe {
+  color: #1d4ed8;
+}

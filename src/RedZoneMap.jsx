@@ -1,450 +1,565 @@
-import { useState } from "react";
+import { useEffect, useMemo, useState } from "react";
+import {
+  MapContainer,
+  TileLayer,
+  Circle,
+  CircleMarker,
+  Popup,
+  useMap,
+} from "react-leaflet";
+import "leaflet/dist/leaflet.css";
+
+const API_BASE_URL = "https://resqverse-sgqz.onrender.com";
+
+const DEFAULT_CENTER = [27.4728, 94.912];
+
+function MapUpdater({ center }) {
+  const map = useMap();
+
+  useEffect(() => {
+    map.flyTo(center, map.getZoom(), {
+      duration: 0.8,
+    });
+  }, [center, map]);
+
+  return null;
+}
+
+function getLatitude(item) {
+  const value =
+    item.latitude ??
+    item.lat ??
+    item.coordinates?.latitude ??
+    item.coordinates?.lat;
+
+  const number = Number(value);
+
+  return Number.isFinite(number) ? number : null;
+}
+
+function getLongitude(item) {
+  const value =
+    item.longitude ??
+    item.lng ??
+    item.lon ??
+    item.coordinates?.longitude ??
+    item.coordinates?.lng ??
+    item.coordinates?.lon;
+
+  const number = Number(value);
+
+  return Number.isFinite(number) ? number : null;
+}
+
+function getRisk(item) {
+  if (
+    item.risk_score !== undefined &&
+    item.risk_score !== null
+  ) {
+    return Number(item.risk_score);
+  }
+
+  if (
+    item.risk !== undefined &&
+    item.risk !== null
+  ) {
+    return Number(item.risk);
+  }
+
+  if (
+    item.safety_score !== undefined &&
+    item.safety_score !== null
+  ) {
+    return (
+      (1 - Number(item.safety_score)) * 100
+    );
+  }
+
+  return 0;
+}
+
+function getRiskLevel(risk) {
+  if (risk >= 85) return "CRITICAL";
+  if (risk >= 70) return "HIGH";
+  if (risk >= 50) return "MODERATE";
+  return "LOW";
+}
+
+function getRiskColor(risk) {
+  if (risk >= 85) return "#dc2626";
+  if (risk >= 70) return "#ea580c";
+  if (risk >= 50) return "#ca8a04";
+  return "#16a34a";
+}
 
 function RedZoneMap() {
-  const [selectedZone, setSelectedZone] = useState(null);
+  const [villages, setVillages] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState("");
+  const [satellite, setSatellite] = useState(true);
+  const [selectedVillage, setSelectedVillage] =
+    useState(null);
 
-  const zones = [
-    {
-      name: "Zone A",
-      area: "Upper Valley",
-      risk: "CRITICAL",
-      score: 94,
-      hazards: "Flood + Landslide",
-      population: 1840,
-    },
-    {
-      name: "Zone B",
-      area: "River Basin",
-      risk: "HIGH",
-      score: 86,
-      hazards: "Flood + Cloudburst",
-      population: 1260,
-    },
-    {
-      name: "Zone C",
-      area: "Mountain Belt",
-      risk: "HIGH",
-      score: 81,
-      hazards: "Landslide",
-      population: 920,
-    },
-    {
-      name: "Zone D",
-      area: "Eastern Corridor",
-      risk: "MODERATE",
-      score: 67,
-      hazards: "Flood",
-      population: 640,
-    },
-  ];
+  useEffect(() => {
+    const loadVillages = async () => {
+      try {
+        setLoading(true);
+
+        const response = await fetch(
+          `${API_BASE_URL}/api/relocation/villages`
+        );
+
+        if (!response.ok) {
+          throw new Error("Failed to load village data.");
+        }
+
+        const data = await response.json();
+
+        setVillages(data.villages || []);
+        setError("");
+      } catch (err) {
+        console.error(err);
+        setError(
+          "Unable to load live habitation data."
+        );
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    loadVillages();
+  }, []);
+
+  const mappedVillages = useMemo(() => {
+    return villages
+      .map((village) => ({
+        ...village,
+        latitude: getLatitude(village),
+        longitude: getLongitude(village),
+        risk: getRisk(village),
+      }))
+      .filter(
+        (village) =>
+          village.latitude !== null &&
+          village.longitude !== null
+      );
+  }, [villages]);
+
+  const criticalCount = mappedVillages.filter(
+    (village) => village.risk >= 85
+  ).length;
+
+  const highCount = mappedVillages.filter(
+    (village) =>
+      village.risk >= 70 &&
+      village.risk < 85
+  ).length;
+
+  const center = selectedVillage
+    ? [
+        selectedVillage.latitude,
+        selectedVillage.longitude,
+      ]
+    : DEFAULT_CENTER;
 
   return (
-    <div className="red-zone-page">
+    <div className="gov-redzone-page">
 
-      {/* PAGE HEADER */}
-      <header className="red-zone-header">
+      {/* HEADER */}
+      <header className="gov-page-header">
 
         <div>
-          <div className="red-title-row">
-            <div className="red-title-icon">◈</div>
-
-            <div>
-              <p className="eyebrow">
-                HAZARD EXPOSURE ANALYSIS
-              </p>
-
-              <h1>Red-Zone Map</h1>
-            </div>
+          <div className="gov-eyebrow">
+            NATIONAL DISASTER RISK MONITORING
           </div>
 
-          <p className="red-zone-description">
-            Identify high-risk geographical areas based on
-            combined multi-hazard exposure and population vulnerability.
+          <h1>
+            Multi-Hazard Red-Zone Map
+          </h1>
+
+          <p>
+            Spatial identification of vulnerable habitations
+            based on available hazard and safety indicators.
           </p>
         </div>
 
-        <div className="map-status">
-          <span className="status-dot"></span>
-          Live Risk Assessment
+        <div className="gov-live-status">
+          <span></span>
+          LIVE DATA
         </div>
 
       </header>
 
 
-      {/* SUMMARY CARDS */}
-      <section className="red-summary">
+      {/* SUMMARY */}
+      <section className="gov-stat-grid">
 
-        <div className="red-summary-card">
-          <div className="red-summary-icon critical-icon">
-            ⚠
-          </div>
-
-          <div>
-            <span>CRITICAL ZONES</span>
-            <strong>1</strong>
-            <p>Immediate attention</p>
-          </div>
+        <div className="gov-stat-card">
+          <span>MONITORED LOCATIONS</span>
+          <strong>{villages.length}</strong>
+          <small>Backend records</small>
         </div>
 
-
-        <div className="red-summary-card">
-          <div className="red-summary-icon high-icon">
-            ◉
-          </div>
-
-          <div>
-            <span>HIGH-RISK ZONES</span>
-            <strong>2</strong>
-            <p>Requires monitoring</p>
-          </div>
+        <div className="gov-stat-card critical">
+          <span>CRITICAL</span>
+          <strong>{criticalCount}</strong>
+          <small>Risk score ≥ 85</small>
         </div>
 
-
-        <div className="red-summary-card">
-          <div className="red-summary-icon population-icon">
-            ⌂
-          </div>
-
-          <div>
-            <span>EXPOSED POPULATION</span>
-            <strong>4,660</strong>
-            <p>People at risk</p>
-          </div>
+        <div className="gov-stat-card high">
+          <span>HIGH RISK</span>
+          <strong>{highCount}</strong>
+          <small>Risk score 70–84</small>
         </div>
 
-
-        <div className="red-summary-card">
-          <div className="red-summary-icon score-icon">
-            !
-          </div>
-
-          <div>
-            <span>HIGHEST RISK SCORE</span>
-            <strong>94</strong>
-            <p>Zone A</p>
-          </div>
+        <div className="gov-stat-card">
+          <span>MAPPED LOCATIONS</span>
+          <strong>{mappedVillages.length}</strong>
+          <small>With coordinates</small>
         </div>
 
       </section>
 
 
       {/* MAP */}
-      <section className="risk-map-panel">
+      <section className="gov-map-panel">
 
-        <div className="map-toolbar">
+        <div className="gov-map-toolbar">
 
-          <div className="map-heading">
+          <div>
+            <span className="gov-section-label">
+              GIS SPATIAL VIEW
+            </span>
 
-            <div className="map-heading-icon">
-              ◉
-            </div>
+            <h2>
+              Dibrugarh District Risk Assessment
+            </h2>
 
-            <div>
-              <strong>North-East India</strong>
-              <span>Multi-Hazard Exposure Map</span>
-            </div>
-
+            <p>
+              Click a mapped habitation to inspect its
+              available risk information.
+            </p>
           </div>
 
+          <div className="gov-map-switch">
 
-          <div className="map-controls">
+            <button
+              className={
+                satellite
+                  ? "active"
+                  : ""
+              }
+              onClick={() =>
+                setSatellite(true)
+              }
+            >
+              Satellite
+            </button>
 
-            <button aria-label="Zoom out">−</button>
-            <button aria-label="Zoom in">+</button>
-            <button aria-label="Locate">⌖</button>
+            <button
+              className={
+                !satellite
+                  ? "active"
+                  : ""
+              }
+              onClick={() =>
+                setSatellite(false)
+              }
+            >
+              Street
+            </button>
 
           </div>
 
         </div>
 
 
-        <div className="fake-map">
-
-          <div className="map-grid"></div>
-
-          {/* MAP SHAPE */}
-          <div className="map-terrain terrain-one"></div>
-          <div className="map-terrain terrain-two"></div>
-          <div className="map-terrain terrain-three"></div>
+        {error && (
+          <div className="gov-map-error">
+            {error}
+          </div>
+        )}
 
 
-          {/* ZONE A */}
-          <button
-            className="map-zone zone-a"
-            onClick={() => setSelectedZone(zones[0])}
+        <div className="gov-real-map">
+
+          <MapContainer
+            center={DEFAULT_CENTER}
+            zoom={10}
+            scrollWheelZoom={true}
+            style={{
+              width: "100%",
+              height: "100%",
+            }}
           >
-            <span className="map-zone-pulse critical-pulse"></span>
-            <strong>94</strong>
-            <small>ZONE A</small>
-          </button>
+
+            <MapUpdater center={center} />
+
+            {satellite ? (
+              <TileLayer
+                url="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}"
+                attribution="Tiles © Esri"
+              />
+            ) : (
+              <TileLayer
+                url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                attribution="© OpenStreetMap contributors"
+              />
+            )}
 
 
-          {/* ZONE B */}
-          <button
-            className="map-zone zone-b"
-            onClick={() => setSelectedZone(zones[1])}
-          >
-            <span className="map-zone-pulse high-pulse"></span>
-            <strong>86</strong>
-            <small>ZONE B</small>
-          </button>
+            {mappedVillages.map(
+              (village, index) => {
+
+                const color =
+                  getRiskColor(
+                    village.risk
+                  );
+
+                return (
+                  <div
+                    key={
+                      village.village_name ||
+                      index
+                    }
+                  >
+
+                    <Circle
+                      center={[
+                        village.latitude,
+                        village.longitude,
+                      ]}
+                      radius={
+                        500 +
+                        Math.max(
+                          village.risk,
+                          20
+                        ) *
+                          8
+                      }
+                      pathOptions={{
+                        color,
+                        fillColor: color,
+                        fillOpacity: 0.16,
+                        weight: 2,
+                      }}
+                    />
+
+                    <CircleMarker
+                      center={[
+                        village.latitude,
+                        village.longitude,
+                      ]}
+                      radius={
+                        selectedVillage?.village_name ===
+                        village.village_name
+                          ? 10
+                          : 7
+                      }
+                      pathOptions={{
+                        color: "#ffffff",
+                        weight: 2,
+                        fillColor: color,
+                        fillOpacity: 1,
+                      }}
+                      eventHandlers={{
+                        click: () =>
+                          setSelectedVillage(
+                            village
+                          ),
+                      }}
+                    >
+
+                      <Popup>
+
+                        <div className="gov-popup">
+
+                          <strong>
+                            {village.village_name ||
+                              "Unnamed Habitation"}
+                          </strong>
+
+                          <span>
+                            Risk:
+                            {" "}
+                            {Math.round(
+                              village.risk
+                            )}
+                            /100
+                          </span>
+
+                          <span>
+                            Status:
+                            {" "}
+                            {getRiskLevel(
+                              village.risk
+                            )}
+                          </span>
+
+                          {village.population && (
+                            <span>
+                              Population:
+                              {" "}
+                              {Number(
+                                village.population
+                              ).toLocaleString()}
+                            </span>
+                          )}
+
+                        </div>
+
+                      </Popup>
+
+                    </CircleMarker>
+
+                  </div>
+                );
+              }
+            )}
+
+          </MapContainer>
 
 
-          {/* ZONE C */}
-          <button
-            className="map-zone zone-c"
-            onClick={() => setSelectedZone(zones[2])}
-          >
-            <span className="map-zone-pulse high-pulse"></span>
-            <strong>81</strong>
-            <small>ZONE C</small>
-          </button>
+          {/* LEGEND */}
+          <div className="gov-map-legend">
 
-
-          {/* ZONE D */}
-          <button
-            className="map-zone zone-d"
-            onClick={() => setSelectedZone(zones[3])}
-          >
-            <span className="map-zone-pulse moderate-pulse"></span>
-            <strong>67</strong>
-            <small>ZONE D</small>
-          </button>
-
-
-          {/* MAP LEGEND */}
-          <div className="map-legend">
-
-            <strong>RISK LEVEL</strong>
+            <strong>
+              RISK LEVEL
+            </strong>
 
             <div>
-              <span className="legend-dot critical-dot"></span>
+              <i className="legend-critical"></i>
               Critical
             </div>
 
             <div>
-              <span className="legend-dot high-dot"></span>
+              <i className="legend-high"></i>
               High
             </div>
 
             <div>
-              <span className="legend-dot moderate-dot"></span>
+              <i className="legend-moderate"></i>
               Moderate
             </div>
 
+            <div>
+              <i className="legend-low"></i>
+              Low
+            </div>
+
           </div>
 
 
-          <div className="map-note">
-            <span>●</span>
-            Click a zone to view details
-          </div>
+          {loading && (
+            <div className="gov-map-loading">
+              Loading spatial data...
+            </div>
+          )}
 
         </div>
 
       </section>
 
 
-      {/* ZONE LIST */}
-      <section className="zone-list-section">
+      {/* LOCATION LIST */}
+      <section className="gov-location-section">
 
-        <div className="section-header">
+        <div className="gov-section-heading">
 
           <div>
-            <p className="eyebrow">
-              IDENTIFIED RED ZONES
-            </p>
+            <span className="gov-section-label">
+              IDENTIFIED LOCATIONS
+            </span>
 
-            <h2>High-Risk Areas</h2>
+            <h2>
+              Vulnerability Overview
+            </h2>
           </div>
 
-          <div className="zone-count">
-            4 Zones Identified
-          </div>
+          <span className="gov-record-count">
+            {mappedVillages.length} mapped
+          </span>
 
         </div>
 
 
-        <div className="zone-list">
+        <div className="gov-location-grid">
 
-          {zones.map((zone) => (
+          {mappedVillages
+            .slice(0, 8)
+            .map((village, index) => {
 
-            <article
-              className={`zone-card ${
-                selectedZone?.name === zone.name
-                  ? "selected-zone"
-                  : ""
-              }`}
-              key={zone.name}
-              onClick={() => setSelectedZone(zone)}
-            >
+              const risk =
+                Math.round(
+                  village.risk
+                );
 
-              <div className="zone-card-top">
-
-                <div className="zone-icon">
-                  ◈
-                </div>
-
-                <div className="zone-name">
-
-                  <h3>{zone.name}</h3>
-
-                  <p>📍 {zone.area}</p>
-
-                </div>
-
-                <div
-                  className={`zone-risk ${zone.risk
-                    .toLowerCase()
-                    .replace("-", "")}`}
-                >
-                  {zone.risk}
-                </div>
-
-              </div>
-
-
-              <div className="zone-card-details">
-
-                <div className="zone-detail">
-
-                  <span>RISK SCORE</span>
-
-                  <strong className="risk-number">
-                    {zone.score}
-                  </strong>
-
-                </div>
-
-
-                <div className="zone-detail">
-
-                  <span>EXPOSED POPULATION</span>
-
-                  <strong>
-                    {zone.population.toLocaleString()}
-                  </strong>
-
-                </div>
-
-
-                <div className="zone-detail">
-
-                  <span>HAZARDS</span>
-
-                  <strong>
-                    {zone.hazards}
-                  </strong>
-
-                </div>
-
-              </div>
-
-
-              <div className="zone-card-bottom">
-
-                <div className="zone-progress">
-
-                  <div
-                    style={{
-                      width: `${zone.score}%`,
-                    }}
-                  ></div>
-
-                </div>
-
+              return (
                 <button
-                  onClick={(event) => {
-                    event.stopPropagation();
-                    setSelectedZone(zone);
-                  }}
+                  className={`gov-location-card ${
+                    selectedVillage?.village_name ===
+                    village.village_name
+                      ? "selected"
+                      : ""
+                  }`}
+                  key={
+                    village.village_name ||
+                    index
+                  }
+                  onClick={() =>
+                    setSelectedVillage(
+                      village
+                    )
+                  }
                 >
-                  View Details →
+
+                  <div className="gov-location-top">
+
+                    <div>
+                      <strong>
+                        {village.village_name ||
+                          "Unnamed Habitation"}
+                      </strong>
+
+                      <small>
+                        Dibrugarh District
+                      </small>
+                    </div>
+
+                    <span
+                      style={{
+                        color:
+                          getRiskColor(
+                            risk
+                          ),
+                      }}
+                    >
+                      {risk}
+                    </span>
+
+                  </div>
+
+                  <div className="gov-location-bottom">
+
+                    <span>
+                      Risk Score
+                    </span>
+
+                    <span>
+                      {getRiskLevel(
+                        risk
+                      )}
+                    </span>
+
+                  </div>
+
                 </button>
-
-              </div>
-
-            </article>
-
-          ))}
+              );
+            })}
 
         </div>
 
       </section>
-
-
-      {/* DETAILS PANEL */}
-      {selectedZone && (
-
-        <div
-          className="zone-overlay"
-          onClick={() => setSelectedZone(null)}
-        >
-
-          <div
-            className="zone-details-panel"
-            onClick={(event) => event.stopPropagation()}
-          >
-
-            <button
-              className="zone-close"
-              onClick={() => setSelectedZone(null)}
-            >
-              ×
-            </button>
-
-
-            <p className="eyebrow">
-              RISK ZONE DETAILS
-            </p>
-
-            <h2>{selectedZone.name}</h2>
-
-            <p className="zone-detail-location">
-              📍 {selectedZone.area}
-            </p>
-
-
-            <div className="zone-large-score">
-
-              <span>RISK SCORE</span>
-
-              <strong>{selectedZone.score}</strong>
-
-              <small>{selectedZone.risk} RISK</small>
-
-            </div>
-
-
-            <div className="zone-modal-grid">
-
-              <div>
-                <span>EXPOSED POPULATION</span>
-                <strong>
-                  {selectedZone.population.toLocaleString()}
-                </strong>
-              </div>
-
-              <div>
-                <span>PRIMARY HAZARDS</span>
-                <strong>{selectedZone.hazards}</strong>
-              </div>
-
-            </div>
-
-
-            <button
-              className="zone-modal-button"
-              onClick={() => setSelectedZone(null)}
-            >
-              Close Assessment
-            </button>
-
-          </div>
-
-        </div>
-
-      )}
 
     </div>
   );

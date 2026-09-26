@@ -1,6 +1,57 @@
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
+import {
+  MapContainer,
+  TileLayer,
+  CircleMarker,
+  Circle,
+  Popup,
+  useMap,
+} from "react-leaflet";
+import "leaflet/dist/leaflet.css";
 
 const API_BASE_URL = "https://resqverse-sgqz.onrender.com";
+
+const DEFAULT_CENTER = [27.4728, 94.912];
+
+function MapUpdater({ center }) {
+  const map = useMap();
+
+  useEffect(() => {
+    if (center) {
+      map.flyTo(center, 10, {
+        duration: 0.8,
+      });
+    }
+  }, [center, map]);
+
+  return null;
+}
+
+function getLatitude(item) {
+  const value =
+    item?.latitude ??
+    item?.lat ??
+    item?.coordinates?.latitude ??
+    item?.coordinates?.lat;
+
+  const number = Number(value);
+
+  return Number.isFinite(number) ? number : null;
+}
+
+function getLongitude(item) {
+  const value =
+    item?.longitude ??
+    item?.lng ??
+    item?.lon ??
+    item?.coordinates?.longitude ??
+    item?.coordinates?.lng ??
+    item?.coordinates?.lon;
+
+  const number = Number(value);
+
+  return Number.isFinite(number) ? number : null;
+}
 
 function RelocationPlanner() {
   const [recommendations, setRecommendations] = useState([]);
@@ -11,6 +62,8 @@ function RelocationPlanner() {
   const [loading, setLoading] = useState(true);
   const [loadingVillages, setLoadingVillages] = useState(true);
   const [error, setError] = useState("");
+
+  const [satellite, setSatellite] = useState(true);
 
   // --------------------------------------------------
   // LOAD VILLAGES
@@ -82,9 +135,6 @@ function RelocationPlanner() {
 
     setSelectedData(village || null);
 
-    // IMPORTANT:
-    // Clear old recommendations when the selected
-    // habitation changes so stale results aren't shown.
     setRecommendations([]);
 
     setError("");
@@ -183,6 +233,53 @@ function RelocationPlanner() {
       accessibilityLabel = "Poor";
     }
   }
+
+  // --------------------------------------------------
+  // MAP DATA
+  // --------------------------------------------------
+
+  const selectedCoordinates = useMemo(() => {
+    if (!selectedData) {
+      return null;
+    }
+
+    const latitude = getLatitude(selectedData);
+    const longitude = getLongitude(selectedData);
+
+    if (latitude === null || longitude === null) {
+      return null;
+    }
+
+    return [latitude, longitude];
+  }, [selectedData]);
+
+  const recommendationLocations = useMemo(() => {
+    return recommendations
+      .map((site) => {
+        const latitude = getLatitude(site);
+        const longitude = getLongitude(site);
+
+        if (latitude === null || longitude === null) {
+          return null;
+        }
+
+        return {
+          ...site,
+          latitude,
+          longitude,
+        };
+      })
+      .filter(Boolean);
+  }, [recommendations]);
+
+  const mapCenter =
+    selectedCoordinates ||
+    (recommendationLocations.length > 0
+      ? [
+          recommendationLocations[0].latitude,
+          recommendationLocations[0].longitude,
+        ]
+      : DEFAULT_CENTER);
 
   // --------------------------------------------------
   // UI
@@ -670,7 +767,289 @@ function RelocationPlanner() {
       </section>
 
 
+      {/* ==================================================
+          RELOCATION GIS MAP
+          ================================================== */}
+
+      <section className="relocation-map-section">
+
+        <div className="relocation-map-controls">
+
+          <div>
+
+            <span className="map-section-label">
+              GIS SPATIAL VIEW
+            </span>
+
+            <h2>
+              Relocation Site Map
+            </h2>
+
+            <p>
+              Selected habitation and recommended
+              relocation locations.
+            </p>
+
+          </div>
+
+
+          <div className="relocation-map-switch">
+
+            <button
+              className={
+                satellite
+                  ? "active"
+                  : ""
+              }
+              onClick={() =>
+                setSatellite(true)
+              }
+            >
+              Satellite
+            </button>
+
+
+            <button
+              className={
+                !satellite
+                  ? "active"
+                  : ""
+              }
+              onClick={() =>
+                setSatellite(false)
+              }
+            >
+              Street
+            </button>
+
+          </div>
+
+        </div>
+
+
+        <div className="relocation-map-container">
+
+          <MapContainer
+            center={DEFAULT_CENTER}
+            zoom={10}
+            scrollWheelZoom={true}
+            style={{
+              width: "100%",
+              height: "100%",
+            }}
+          >
+
+            <MapUpdater
+              center={mapCenter}
+            />
+
+
+            {/* MAP LAYER */}
+
+            {satellite ? (
+
+              <TileLayer
+                url="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}"
+                attribution="Tiles © Esri"
+              />
+
+            ) : (
+
+              <TileLayer
+                url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                attribution="© OpenStreetMap contributors"
+              />
+
+            )}
+
+
+            {/* SELECTED VILLAGE */}
+
+            {selectedCoordinates && (
+
+              <>
+                <Circle
+                  center={selectedCoordinates}
+                  radius={1200}
+                  pathOptions={{
+                    color: "#dc2626",
+                    fillColor: "#dc2626",
+                    fillOpacity: 0.15,
+                    weight: 2,
+                  }}
+                />
+
+                <CircleMarker
+                  center={selectedCoordinates}
+                  radius={10}
+                  pathOptions={{
+                    color: "#ffffff",
+                    weight: 3,
+                    fillColor: "#dc2626",
+                    fillOpacity: 1,
+                  }}
+                >
+
+                  <Popup>
+
+                    <div className="relocation-map-popup">
+
+                      <strong>
+                        {selectedData?.village_name ||
+                          selectedVillage}
+                      </strong>
+
+                      <span className="popup-status">
+                        VULNERABLE HABITATION
+                      </span>
+
+                      <div>
+                        Population:
+                        {" "}
+                        {population}
+                      </div>
+
+                      <div>
+                        Risk Score:
+                        {" "}
+                        {riskScore}/100
+                      </div>
+
+                      <div>
+                        Safety:
+                        {" "}
+                        {safetyScore !== null
+                          ? `${safetyScore.toFixed(1)}/100`
+                          : "N/A"}
+                      </div>
+
+                    </div>
+
+                  </Popup>
+
+                </CircleMarker>
+              </>
+
+            )}
+
+
+            {/* RECOMMENDED SITES */}
+
+            {recommendationLocations.map(
+              (site, index) => (
+
+                <CircleMarker
+                  key={
+                    site.location_code ||
+                    `${site.village_name}-${index}`
+                  }
+                  center={[
+                    site.latitude,
+                    site.longitude,
+                  ]}
+                  radius={8}
+                  pathOptions={{
+                    color: "#ffffff",
+                    weight: 2,
+                    fillColor: "#2563eb",
+                    fillOpacity: 1,
+                  }}
+                >
+
+                  <Popup>
+
+                    <div className="relocation-map-popup">
+
+                      <strong>
+                        {site.village_name ||
+                          "Recommended Site"}
+                      </strong>
+
+                      <span className="popup-status safe">
+                        RECOMMENDED RELOCATION SITE
+                      </span>
+
+                      <div>
+                        Rank:
+                        {" "}
+                        #{index + 1}
+                      </div>
+
+                      <div>
+                        Relocation Score:
+                        {" "}
+                        {Number(
+                          site.score_100
+                        ).toFixed(2)}
+                        %
+                      </div>
+
+                      <div>
+                        Distance:
+                        {" "}
+                        {site.distance_km}
+                        {" "}
+                        km
+                      </div>
+
+                      <div>
+                        Capacity:
+                        {" "}
+                        {(
+                          Number(
+                            site.capacity_score
+                          ) * 100
+                        ).toFixed(1)}
+                        %
+                      </div>
+
+                    </div>
+
+                  </Popup>
+
+                </CircleMarker>
+
+              )
+            )}
+
+          </MapContainer>
+
+
+          {/* MAP LEGEND */}
+
+          <div className="relocation-map-legend">
+
+            <strong>
+              MAP LEGEND
+            </strong>
+
+
+            <div className="relocation-legend-item">
+
+              <span className="relocation-legend-dot selected"></span>
+
+              Selected habitation
+
+            </div>
+
+
+            <div className="relocation-legend-item">
+
+              <span className="relocation-legend-dot safe"></span>
+
+              Recommended site
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </section>
+
+
       {/* FOOTER INSIGHT */}
+
       <div className="planner-insight">
 
         <div className="insight-icon">
@@ -716,12 +1095,14 @@ function SafeSite(props) {
     >
 
       {/* RANK */}
+
       <div className="site-rank">
         {props.rank}
       </div>
 
 
       {/* SITE NAME */}
+
       <div className="site-main">
 
         <div className="site-title">
@@ -748,6 +1129,7 @@ function SafeSite(props) {
 
 
       {/* CAPACITY */}
+
       <div className="site-metric">
 
         <span>
@@ -766,6 +1148,7 @@ function SafeSite(props) {
 
 
       {/* DISTANCE */}
+
       <div className="site-metric">
 
         <span>
@@ -784,6 +1167,7 @@ function SafeSite(props) {
 
 
       {/* RELOCATION SCORE */}
+
       <div className="site-safety">
 
         <span>
@@ -813,6 +1197,7 @@ function SafeSite(props) {
 
 
       {/* INFRASTRUCTURE */}
+
       <div className="site-infrastructure">
 
         <span className="check-icon">
@@ -835,6 +1220,7 @@ function SafeSite(props) {
 
 
       {/* ARROW */}
+
       <button
         type="button"
         className="site-arrow"
